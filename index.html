@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démineur</title>
+    <link rel="icon" type="image/png" href="img/icon_paint.png" />
+    <link href="style.css" rel="stylesheet" >
+    <link href="nav.css" rel="stylesheet" >
+
+
+    <script src="script.js" defer></script>
+    <script src="main.js" defer></script>
+
+</head>
+
+<body>
+<header> 
+    <section class="border">
+    <nav>
+        <div class= navbar>
+            
+            <div class="navbar-content">
+                <div id="logo_cite_maudite">
+                    <img src="img/logo_minesweeper.png" alt="Logo minesweeper" >
+                </div>
+                <a href="index.html">Accueil</a>
+                <a href="a-propos.html">À propos</a>
+                
+            </div>
+        </div>
+    </nav>
+    </section>        
+
+</header>
+
+
+<main>
+    <section>
+
+    <div class="btn-commencer-centrer" id="btn-commencer-centrer">
+        <div class="detonator-container" id="hoverExplosion" onclick="triggerExplosion(this)">
+            <img src="img/lever.png" class="lever">
+
+            
+            <img class="dyna_hover" src="img/dyna-hover1.gif">
+            <div class="base">
+                
+                Commencer le jeu
+            </div>
+            <audio id="audio_briquet" src="sound/briquet.mp3"></audio>
+            <audio id="audio_feu" src="sound/feu.mp3"></audio>
+            <audio id="audio_explosion" src="sound/explosion.mp3"></audio>
+            
+
+        </div>
+        
+    </div>
+        
+    </section>
+    <section>
+        <div class ="contenu" id="contenu">
+            <div id="game-grid" class="grid-container">
+                
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+      console.log("script chargé ✅ (inline test)");
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    <header>
+        <nav>
+            <div class ="flex_nav">   
+                <img src="img/logo_minesweeper.png" alt="Logo minesweeper" >
+                <h1>Démineur</h1>
+            </div>
+            <div></div>
+            <div>
+                <a href="index.html">Accueil</a>
+                <a href="a-propos.html">À propos</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+       <div class="contenu">
+        <h1>Jouez au morpion !</h1>
+        <div class="grid-morpion" id="grid-morpion">
+            <div class="cell" id="p1"></div>
+            <div class="cell" id="p2"></div>
+            <div class="cell" id="p3"></div>
+            <div class="cell" id="p4"></div>
+            <div class="cell" id="p5"></div>
+            <div class="cell" id="p6"></div>
+            <div class="cell" id="p7"></div>
+            <div class="cell" id="p8"></div>
+            <div class="cell" id="p9"></div>
+
+            <div class="ligne-victoire" id="ligneVictoire"></div>
+        </div>
+        
+        <div class="rejouer" id="rejouer">
+            <br>
+            <img src="img/rejouer.png">
+        </div>
+        
+        <div class="dialogue" id="dialogue"><p id="espace_dialogue"></p></div>
+        
+       </div> 
+
+
+
+    </main>
+</body>
+</html>
+
+-->

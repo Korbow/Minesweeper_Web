@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cité Maudite</title>
+    <link rel="icon" type="image/png" href="img/icon_paint.png" />
+    <link href="style/nav.css" rel="stylesheet" >
+    <link href="style/cite-maudite.css" rel="stylesheet" >      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+    <script src="script/script.js" defer></script>
+    <script src="script/trailer.js" defer></script>
+</head>
+
+
+<body>
+<header> 
+    <section class="border">
+        <nav>
+            <div class= navbar>
+                
+                <div class="navbar-content">
+                    <div id="logo_cite_maudite">
+                        <img src="../ressources/img/logo_cite_maudite_transparent_sansmarge.png">
+                    </div>
+                    <a href="index.html"> Accueil</a>
+                    <a href="cite-maudite.html"> La Cité</a>
+                    <a href="quetes.html"> Quêtes</a>
+                    <a href="apropos-cmfr.html" >CMFR</a>
+                    
+                </div>
+            </div>
+        </nav>
+    </section>        
+
+</header>
+
+<main>
+      
+    <section>
+        <div class="cadre_video">
+
+            <div class="libellé_video">
+                <h1>Découvir le trailer de la cité :</h1>
+                <p>Regarde maintenant et plonge dans l’univers de La Cité.</p>
+                <br>
+                <div class="lien-trailer-ytb">
+                    <a href="https://www.youtube.com/watch?v=1bxrFRP2F74" target="_blank" rel="noopener noreferrer">
+                      Regarder sur YouTube
+                      <svg class="icone-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12H18M18 12L13 7M18 12L13 17"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                </div>
+                
+
+            </div>
+
+            <div id="video-container">
+                <div id="video-cover">
+                    <div class="btn-fermer">
+                        <svg class="btn-cross" height="10px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"/>
+                        </svg>
+                    </div>
+                    <div class="box-play">
+                        <svg class="btn-play" viewBox="0 0 100 100">
+                            <polygon points="40,30 70,50 40,70" fill="white"/>
+                        </svg>
+                        <h3>Voir le trailer</h3>
+                    </div>
+                    
+                </div>
+
+                <!--Lecteur YouTube-->
+                <div id="player"></div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="flexs_contenu">
+        <div class="flex_1_description_">
+            <div class="texte_bloc">
+                <h2>Description de la cité</h2>
+                <p>Durant 3 jours, les joueurs en équipe de 4 devront compléter des quêtes afin d'obtenir des points.
+                    <br>
+                    L'équipe ayant le plus de points à la fin des trois jours remporte l'événement.
+
+                </p>
+            </div>
+            <div class="image_bloc" >
+                <img id="boxshadow1" src="../ressources/img/img_description.png" alt="investissement">
+            </div>
+        </div>
+    
+        <div class="flex_2_description_">
+            <div class="texte_bloc">
+                <h2>Découvir les quêtes</h2>
+                <p>
+                    Découvre les quêtes a accomplir pendant la cité qui se basent sur:
+                    <br>
+                    <br>
+                    <ul>
+                        <li>le lore de l’événement</li>
+                        <li>des défis à réaliser, sur les connaissances et compétences en jeu</li>
+                        <li>le farm de ressources</li>
+                    </ul>
+                </p>
+                <div class="cta-flex-end">
+                    <a href="quetes.html" class="cta">Voir les quêtes ></a>
+                </div>
+            </div>
+            <div class="image_bloc">
+                <img id="boxshadow2" src="../ressources/img/img_quetes.png" alt="immobilier">
+            </div>
+        </div>
+    
+        <div class="flex_3_description_">
+            <div class="texte_bloc">
+                <h2>S'incrire à la cité</h2>
+                <p>Inscrit toi en passant par le google form ci dessous ou en nous contactant par billet sur le discord.<br> Places limités et en équibe de 4. Disponible jusqu'au 08/08/25</p>
+                <div class="cta-flex-end">
+                    <a href="google-doc.html" class="cta">Lien vers le google docs></a>
+                </div>
+            </div>
+
+            <div class="image_bloc">
+                <img id="boxshadow3" src="../ressources/img/img_inscription.png" alt="territoire">
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="flex_foot">
+        <div class="flex_foot_cmfr">
+            <h6>CMFR</h6>
+            <a>Recrutement</a>
+            <a>Branding</a>
+            <a>Partenaires</a>
+        </div>
+
+        <div class="flex_foot_autres">
+            <h6>INFORMATIONS INDEXES</h6>
+            <a>Lien Googleform inscription</a>
+            <a>Page des quêtes</a>
+            <a>Lien de la page de l'évent</a>
+        </div>
+    </dip>
+</footer>
