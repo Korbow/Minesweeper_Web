@@ -1,191 +1,108 @@
+import { lancerJeu } from './js/main.js';
 
 
-function lancerJeu() {
-    
-    console.log("jeu démarré");
-
-
-    const contenu = document.getElementById("contenu");
-
-    const texteAffiche = document.createElement("div");
-
-    contenu.appendChild(texteAffiche);
-
-
-    texteAffiche.classList.add("text-affiche");
-
-    const score = document.createElement("div");
-    texteAffiche.appendChild(score);
-
-    score.classList.add("score");
-    score.innerHTML = "<h3>Score : 0</h3>";
-
-    const timer = document.createElement("div");
-    texteAffiche.appendChild(timer);
-
-    timer.classList.add("timer");
-    timer.innerHTML = "<h3>Chronomètre : 0</h3>";
+const btnBoom = document.getElementById('hoverExplosion');
+btnBoom.addEventListener('click', triggerExplosion);
 
 
 
+const currentPage = window.location.pathname.split("/").pop().replace(".html", "");
 
-    createGrid(10, 10)
+let currentLink = null;
 
-    placementMine(10, 10)
-
-    calculNombreAdjacent(10, 10)
-
-    const allCells = document.querySelectorAll(".grid-cell");
-    allCells.addEventListener
-
-
-}
-
-
-
-function reveal(cell, index, gridSize, allCells, revealed = new Set()) {
-    if (revealed.has(index)) return; 
-    revealed.add(index);
-  
-    const mineCount = cell.dataset.mineCount;
-  
-    if (cell.classList.contains("mine")) {
-      cell.style.backgroundColor = "inherit";
-      cell.style.backgroundImage = "url(img/logo_minesweeper.png)";
-      cell.style.backgroundSize = "contain";
-
-    } 
-    else if (mineCount > 0) {
-      cell.style.backgroundColor = "white";
-      cell.innerText = mineCount;
-  
-      if (mineCount == 1) cell.style.color = "blue";
-      else if (mineCount == 2) cell.style.color = "green";
-      else if (mineCount == 3) cell.style.color = "red";
-      else if (mineCount == 4) cell.style.color = "purple";
-    } 
-    else {
-      // 0 mines autour, on révèle les voisins
-      cell.style.backgroundColor = "white";
-      const neighbors = getAdjacentIndices(index, gridSize);
-  
-      neighbors.forEach(i => {
-        const neighborCell = allCells[i];
-        reveal(neighborCell, i, gridSize, allCells, revealed); // récursif
-      });
+document.querySelectorAll(".navbar-content a").forEach(link => {
+    if (link.getAttribute("href").includes(currentPage)) {
+        link.classList.add("is-active");
+        link.setAttribute("id", "active-link")
+        currentLink = link;
     }
-}
-
-
-function createGrid(rows, cols) {
-    const gridContainer = document.getElementById("game-grid");
-    contenu.appendChild(gridContainer);
-    gridContainer.innerHTML = ""; // reset si grille
-    
-  
-    const gridSize = cols; // important pour les calculs
-
-    const allCells = []; // on stocke les cellules pour y accéder dans reveal()
-
-
-    for (let i = 0; i < rows * cols; i++) {
-      const cell = document.createElement("div");
-      cell.classList.add("grid-cell");
-
-      const x = i % cols;         // colonne 
-      const y = Math.floor(i / cols); // ligne 
-
-
-
-      cell.dataset.index = i; // pour identification
-      cell.dataset.x = x;
-      cell.dataset.y = y;
-
-      allCells.push(cell); // stocke la cellule
-  
-
-      // au clic
-      cell.addEventListener("click", () => {
-        reveal(cell, i, gridSize, allCells);
-      });
-  
-      gridContainer.appendChild(cell);
-    }
-  }
-
-
-
-
-  function placementMine(rows, cols) {
-    const totalCells = rows * cols;
-    const selectedIndices = new Set();
-    const allCells = document.querySelectorAll(".grid-cell");
-    
-    while (selectedIndices.size < 12) {
-      const randIndex = Math.floor(Math.random() * totalCells);
-      selectedIndices.add(randIndex); // les doublons sont ignorés automatiquement
-    }
-    selectedIndices.forEach(index => {
-        const cell = allCells[index];
-        cell.classList.add("mine");
-      });
-
-  }
-
-
-
-  function calculNombreAdjacent(rows, cols){
-    const allCells = document.querySelectorAll(".grid-cell");
-    const gridSize = rows;
-
-
-    allCells.forEach((cell, index) => {
-        if (cell.classList.contains("mine")) return;
-        const neighbors = getAdjacentIndices(index, gridSize);
-
-        // compter combien de voisin on la classe .mine
-        
-        const mineCount = neighbors.reduce((count, i) => {
-            return count + (allCells[i].classList.contains("mine") ? 1 : 0);
-        }, 0);
-        
-        cell.dataset.mineCount = mineCount;
-        console.log("la case "+ index +" a "+ mineCount +"mines adjacentes")
-        
+});
+const logoCiteMaudite = document.querySelector("#logo_cite_maudite")
+logoCiteMaudite.addEventListener('click', function () {
+    window.location.href = "index.html";
 });
 
 
-}
+
+const navbar = document.querySelector(".navbar-content");
+
+navbar.addEventListener("mouseenter", () => {
+    if (currentLink) currentLink.classList.remove("is-active");
+});
+
+navbar.addEventListener("mouseleave", () => {
+    if (currentLink) currentLink.classList.add("is-active");
+});
 
 
-  function getAdjacentIndices(index, gridSize) {
-    const indices = [];
-    const row = Math.floor(index / gridSize);
-    const col = index % gridSize;
 
-    for (let dr = -1; dr <= 1; dr++) {
-        for (let dc = -1; dc <= 1; dc++) {
-            if (dr === 0 && dc === 0) continue;
 
-            const newRow = row + dr;
-            const newCol = col + dc;
-            if (newRow >= 0 && newRow < gridSize && newCol >= 0 && newCol < gridSize) {
-                const newIndex = newRow * gridSize + newCol;
-                indices.push(newIndex);
-            }
-        }
-      }
+//audio allumage :
+
+const soundHover = document.querySelector(".detonator-container");
+const audioBriquet = document.getElementById("audio_briquet");
+const audioFeu = document.getElementById("audio_feu");
+
+soundHover.addEventListener("mouseenter", () => {
+  audioBriquet.currentTime = 0;
+  audioBriquet.play();
+
+  setTimeout(() => {
+    audioFeu.currentTime = 6;
+    audioFeu.play();
+  }, 0);
+});
+
+soundHover.addEventListener("mouseleave", () => {
+  audioBriquet.pause();
+  audioBriquet.currentTime = 0;
+
+  audioFeu.pause();
+  audioFeu.currentTime = 0;
+});
+
+
+
+
+function triggerExplosion(event) {
+    const element = event.currentTarget; // ✅ Récupère l'élément cliqué
+
+    const rect = element.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+  
+    const explosion = document.createElement('div');
+    explosion.className = 'explosion';
+    explosion.style.left = `${x}px`;
+    explosion.style.top = `${y}px`;
+    document.body.appendChild(explosion);
     
-      return indices; 
+    const audioExplosion = document.getElementById("audio_explosion");
+    if (audioExplosion) {
+      audioExplosion.currentTime = 0;
+      audioExplosion.play().catch(() => {}); // silence l'erreur autoplay si bloqué
     }
 
+    element.classList.add("shake");
 
+    setTimeout(() => {
+      const startContainer = document.getElementById("btn-commencer-centrer");
+      if (startContainer) {
+        startContainer.style.display = "none";
+      }
+      lancerJeu(); // ✅ Appel de ta fonction principale
+    }, 2600);
+  
+    setTimeout(() => {
+      explosion.style.opacity = "0"; // fade-out 
 
-
-
-
-
-
+      setTimeout(() => {
+        explosion.remove();
+        element.classList.remove("shake");
+        if (audioExplosion) audioExplosion.pause();
+      }, 4000); // durée du fade-out
+    }, 1500); // durée avant le fade-out
+}
 
 
 
