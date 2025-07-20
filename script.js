@@ -6,17 +6,10 @@ btnBoom.addEventListener('click', triggerExplosion);
 
 
 
-const currentPage = window.location.pathname.split("/").pop().replace(".html", "");
 
-let currentLink = null;
 
-document.querySelectorAll(".navbar-content a").forEach(link => {
-    if (link.getAttribute("href").includes(currentPage)) {
-        link.classList.add("is-active");
-        link.setAttribute("id", "active-link")
-        currentLink = link;
-    }
-});
+
+
 const logoCiteMaudite = document.querySelector("#logo_cite_maudite")
 logoCiteMaudite.addEventListener('click', function () {
     window.location.href = "index.html";

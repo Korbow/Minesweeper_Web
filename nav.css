@@ -16,7 +16,7 @@ nav{
 /*barre de la nav*/
 .navbar {
     width: 720px;
-    height: 7%;
+    height: 8%;
     display: flex;
     transition: all 0.5s ease; 
 
@@ -85,19 +85,6 @@ nav{
     rgba(255, 60, 0, 0.09) 0px 16px 8px,
     rgba(255, 60, 0, 0.09) 0px 32px 16px;
     
-/*
-    background: linear-gradient(
-        135deg,
-        #ff3c00 0%,
-        #ff8c00 25%,
-        #ff8c00 75%,
-        #ff3c00 100%
-      );
-
-      255, 60, 0, fonce
-      255, 140, 0, clair
-
-      */
     border-radius: clamp(1px, 1.2vw, 12px);
 }
 
