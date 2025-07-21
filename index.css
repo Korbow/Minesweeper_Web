@@ -1,0 +1,98 @@
+
+body {
+
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f2f2f2, #fff7e0);
+
+
+
+}
+
+.hero {
+  text-align: center;
+  margin: 15% 0% 30% 0%;
+}
+
+
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.2;
+}
+
+.logo-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.3em;
+  font-size: 2.2rem;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #111;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  background: #333;
+}
+
+/*
+
+.contenu-title{
+    margin: 30% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+
+}
+
+.contenu-title h1{
+
+    font-size: 4em;
+
+    background-image: linear-gradient(
+      135deg,
+      #ff3c00 0%,
+      #ff8c00 25%,
+      #ff8c00 75%,
+      #ff3c00 100%
+    );
+
+
+    
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+   
+
+
+}
+
+#span-icon-logoMinesweeper{
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+
+    vertical-align:middle;
+    background-size: contain;
+    background-image: url(/img/logo_minesweeper.png);
+    background-repeat: no-repeat;
+
+}
+
+
+
+
+
+*/

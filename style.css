@@ -5,12 +5,12 @@
 body {
     font-family: 'Manrope', sans-serif;
     font-size: 1em;
-    background-color: white;
-    background-image: url("img/morpion_background.png");
+    background: linear-gradient(to bottom right, #f2f2f2, #fff7e0);
+    
     margin: 0;
-    background-repeat: repeat;
-    background-size: 30%;
+    
 }
+
 
 .border {
   
@@ -35,7 +35,13 @@ a{
 
 
 .base {
-    background: linear-gradient(135deg, #ff5858, #f857a6); /* Dégradé élégant */
+    background: linear-gradient(
+      135deg,
+      #4e4e4e 0%,
+      #505050 25%,
+      #505050 75%,
+      #4e4e4e 100%
+    );
     color: white;
     border: none;
     padding: 0.8em 1.6em;

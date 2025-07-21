@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démineur</title>
+    <link rel="icon" type="image/png" href="img/icon_paint.png" />
+    <link href="style.css" rel="stylesheet" >
+    <link href="nav.css" rel="stylesheet" >
+
+    <script src="js/nav.js" defer></script>
+    <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+
+</head>
+
+<body>
+<header> 
+    <section class="border">
+    <nav>
+        <div class= navbar>
+            
+            <div class="navbar-content">
+                <div id="logo_cite_maudite">
+                    <img src="img/logo_minesweeper.png" alt="Logo minesweeper" >
+                </div>
+                <a href="index.html">Accueil</a>
+                <a href="game.html">Jouer</a>
+                <a href="apropos.html">À propos</a>
+                
+            </div>
+        </div>
+    </nav>
+    </section>        
+
+</header>
+
+
+<main>
+    <section>
+
+    <div class="btn-commencer-centrer" id="btn-commencer-centrer">
+        <div class="detonator-container" id="hoverExplosion">
+            <img src="img/lever.png" class="lever">
+
+            
+            <img class="dyna_hover" src="img/dyna-hover1.gif">
+            <div class="base">
+                
+                Commencer le jeu
+            </div>
+            <audio id="audio_briquet" src="sound/briquet.mp3"></audio>
+            <audio id="audio_feu" src="sound/feu.mp3"></audio>
+            <audio id="audio_explosion" src="sound/explosion.mp3"></audio>
+            
+
+        </div>
+        
+    </div>
+        
+    </section>
+    <section>
+        <div class ="contenu" id="contenu">
+            <div id="game-grid" class="grid-container">
+                
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+      console.log("script chargé ✅ (inline test)");
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+

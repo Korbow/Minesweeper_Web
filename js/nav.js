@@ -9,3 +9,24 @@ document.querySelectorAll(".navbar-content a").forEach(link => {
         currentLink = link;
     }
 });
+
+
+
+
+
+const logoCiteMaudite = document.querySelector("#logo_cite_maudite")
+logoCiteMaudite.addEventListener('click', function () {
+    window.location.href = "index.html";
+});
+
+
+
+const navbar = document.querySelector(".navbar-content");
+
+navbar.addEventListener("mouseenter", () => {
+    if (currentLink) currentLink.classList.remove("is-active");
+});
+
+navbar.addEventListener("mouseleave", () => {
+    if (currentLink) currentLink.classList.add("is-active");
+});

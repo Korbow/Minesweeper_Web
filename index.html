@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Démineur</title>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="img/icon_paint.png" />
     <link href="style.css" rel="stylesheet" >
     <link href="nav.css" rel="stylesheet" >
+    <link href="index.css" rel="stylesheet" >
 
     <script src="js/nav.js" defer></script>
-    <script type="module" src="js/main.js" defer></script>
-    <script type="module" src="script.js" defer></script>
+
+
 
 </head>
 
@@ -25,8 +27,8 @@
                     <img src="img/logo_minesweeper.png" alt="Logo minesweeper" >
                 </div>
                 <a href="index.html">Accueil</a>
+                <a href="game.html">Jouer</a>
                 <a href="apropos.html">À propos</a>
-                
             </div>
         </div>
     </nav>
@@ -34,58 +36,23 @@
 
 </header>
 
-
 <main>
-    <section>
+    
 
-    <div class="btn-commencer-centrer" id="btn-commencer-centrer">
-        <div class="detonator-container" id="hoverExplosion">
-            <img src="img/lever.png" class="lever">
-
-            
-            <img class="dyna_hover" src="img/dyna-hover1.gif">
-            <div class="base">
-                
-                Commencer le jeu
-            </div>
-            <audio id="audio_briquet" src="sound/briquet.mp3"></audio>
-            <audio id="audio_feu" src="sound/feu.mp3"></audio>
-            <audio id="audio_explosion" src="sound/explosion.mp3"></audio>
-            
-
-        </div>
-        
-    </div>
-        
-    </section>
-    <section>
-        <div class ="contenu" id="contenu">
-            <div id="game-grid" class="grid-container">
-                
-            </div>
-        </div>
-    </section>
+  <div class="hero">
+    
+    
+    <h1 class="hero-title">
+      Transforme ton cerveau 
+      <span class="logo-icon">🧠</span>
+      <br />
+      en détecteur de mines
+    </h1>
+    
+    <button class="cta-button">Jouer maintenant 💣</button>
+  </div>
 
 </main>
-
-<script>
-    window.addEventListener("DOMContentLoaded", () => {
-      console.log("script chargé ✅ (inline test)");
-    });
-  </script>
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
 
 
 

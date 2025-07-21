@@ -10,26 +10,6 @@ btnBoom.addEventListener('click', triggerExplosion);
 
 
 
-const logoCiteMaudite = document.querySelector("#logo_cite_maudite")
-logoCiteMaudite.addEventListener('click', function () {
-    window.location.href = "index.html";
-});
-
-
-
-const navbar = document.querySelector(".navbar-content");
-
-navbar.addEventListener("mouseenter", () => {
-    if (currentLink) currentLink.classList.remove("is-active");
-});
-
-navbar.addEventListener("mouseleave", () => {
-    if (currentLink) currentLink.classList.add("is-active");
-});
-
-
-
-
 //audio allumage :
 
 const soundHover = document.querySelector(".detonator-container");
@@ -96,42 +76,6 @@ function triggerExplosion(event) {
       }, 4000); // durée du fade-out
     }, 1500); // durée avant le fade-out
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
