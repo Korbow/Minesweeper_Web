@@ -10,7 +10,7 @@ body {
 
 .hero {
   text-align: center;
-  margin: 15% 0% 30% 0%;
+  margin: 15% 0% 20% 0%;
 }
 
 
@@ -38,9 +38,9 @@ body {
 }
 
 
-button {
+.cta-button {
   margin-top: 2rem;
-  padding: 1rem 2rem;
+  padding: 0.2rem 0.4rem;
   font-size: 1rem;
   font-weight: bold;
 
@@ -57,40 +57,50 @@ button {
   align-items: center;
 }
 
-button .span-mother {
+a {
+  text-decoration: none;
+}
+
+
+.cta-button:hover {
+  background: #333;
+  transition: 0.5s;
+}
+
+.cta-button .span-mother {
   display: flex;
   overflow: hidden;
 }
 
-button:hover .span-mother {
+.cta-button:hover .span-mother {
   position: absolute;
 }
 
-button:hover .span-mother span {
+.cta-button:hover .span-mother span {
   transform: translateY(11.2em);
 }
 
-button .span-mother span:nth-child(1) {
+.cta-button .span-mother span:nth-child(1) {
   transition: 0.5s;
 }
 
 
 
-button .span-mother2 {
+.cta-button .span-mother2 {
   display: flex;
   position: absolute;
   overflow: hidden;
 }
 
-button .span-mother2 span {
+.cta-button .span-mother2 span {
   transform: translateY(-1.2em);
 }
 
-button:hover .span-mother2 span {
+.cta-button:hover .span-mother2 span {
   transform: translateY(0);
 }
 
-button .span-mother2 span {
+.cta-button .span-mother2 span {
   transition: 0.5s ease;
 }
 

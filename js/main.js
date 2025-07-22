@@ -1,7 +1,7 @@
 
 import { createGrid } from './grid.js';
 import { placementMine } from './mines.js';
-import { Timer } from './TimerEtScore.js';
+import { démarrerTimer, setTimerElement } from './TimerEtScore.js';
 import {calculNombreAdjacent } from './utils.js';
 
 
@@ -23,15 +23,13 @@ import {calculNombreAdjacent } from './utils.js';
     const score = document.createElement("div");
     score.classList.add("score");
     
-    var ScoreInt = 0;
-    var scoreString ="<h3>Score : "+ ScoreInt +"</h3> ";
-    score.innerHTML = scoreString;
-    texteAffiche.appendChild(score);
-  
     const timer = document.createElement("div");
     timer.classList.add("timer");
-    timer.innerHTML = "<h3>Chronomètre : 0</h3>";
     texteAffiche.appendChild(timer);
+
+    setTimerElement(timer);
+    démarrerTimer();
+      
   
     createGrid(10, 10);
     placementMine(10, 10);
