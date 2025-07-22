@@ -1,5 +1,6 @@
 const currentPage = window.location.pathname.split("/").pop().replace(".html", "");
 
+
 let currentLink = null;
 
 document.querySelectorAll(".navbar-content a").forEach(link => {
@@ -16,7 +17,12 @@ document.querySelectorAll(".navbar-content a").forEach(link => {
 
 const logoCiteMaudite = document.querySelector("#logo_cite_maudite")
 logoCiteMaudite.addEventListener('click', function () {
-    window.location.href = "index.html";
+    if (window.location.pathname.includes("/page")){
+        window.location.href = "../index.html";
+    }
+    else{
+        window.location.href = "index.html";
+    }
 });
 
 
