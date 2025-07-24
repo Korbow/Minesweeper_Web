@@ -21,7 +21,7 @@ export function démarrerTimer() {
     } else {
       secondes++;
       if (timerElement) {
-        timerElement.innerHTML = `<h3>Chronomètre : ${secondes}</h3>`;
+        timerElement.innerHTML = `<h3>Chronomètre : ${secondes} s</h3>`;
       }
     }
   }, 1000);

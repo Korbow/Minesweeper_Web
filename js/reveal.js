@@ -9,7 +9,7 @@ export function reveal (cell, index, gridSize, allCells, revealed = new Set()) {
   
     if (cell.classList.contains("mine")) {
       cell.style.backgroundColor = "inherit";
-      cell.style.backgroundImage = "url(img/logo_minesweeper.png)";
+      cell.style.backgroundImage = "url(../resources/img/logo_minesweeper.png)";
       cell.style.backgroundSize = "contain";
 
       

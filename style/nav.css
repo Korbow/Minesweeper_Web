@@ -155,3 +155,377 @@ nav{
 
 
 
+.options{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    right: 2%;
+    top: 3%;
+    z-index: 6;
+}
+
+.volume{
+    background-color: rgba(0, 0, 0, 0);
+    padding: 2% 4%;
+    color: white;
+    border-radius: 5%;
+}
+
+
+
+/*---------------------------------------------Comportement du composant------------------------------------------------------*/
+
+
+button#enable-sound {
+  position: relative;
+  font-family: inherit;
+  font-size: 20px;
+  color: white;
+  width: 250px;
+
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 0.6em;  espace entre le texte et l'icône */
+
+  border:  dashed rgba(155, 153, 153, 0); /* invisible mais présente */
+  transition: border-color 0.5s ease;
+
+
+  background-color: transparent;
+  padding: 0.8em 1.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 15px;
+  font-weight: 1000;
+  text-wrap: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  
+  
+}
+
+button#enable-sound:hover{
+    transition: all 0.5 step-end;
+    
+    padding: 0.8em 1.6em;
+}
+
+
+
+
+
+
+/*-----------------------------------Comportement du svg wrapper normal, hover, active -----------------------------------*/
+button#enable-sound .svg-wrapper {
+display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;            /* pas de décalage */
+  padding: 0;
+  line-height: 1;       /* éviter l'espace vertical */
+  vertical-align: middle;
+
+  position: relative;
+  margin-right: 10%;
+  
+
+  pointer-events: none;
+  opacity: 1;
+  background-color: #c4c6c700;
+  transition: opacity 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+  transition: background-color 0.5 ease;
+  z-index: 2;
+}
+
+button#enable-sound:hover .svg-wrapper {
+  opacity: 1;
+  
+  transition: opacity 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+  
+}
+
+button#enable-sound:active .svg-wrapper{
+  opacity: 1;
+  left: 0%;
+  transition: opacity 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+}
+
+button#enable-sound:hover .svg-wrapper {
+  opacity: 1;
+  
+  transition: opacity 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+  
+}
+
+button#enable-sound.idle .svg-wrapper {
+  opacity: 1;
+  left: 60%;
+  transition: opacity 0.5s ease-in-out;
+  transition: left 0.8s ease-in-out;
+  
+}
+
+
+
+
+
+button#enable-sound::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    100px circle at var(--x) var(--y), /* valeur par défaut hors écran */
+    rgba(155, 153, 153, 1) 0%,
+    rgba(155, 153, 153, 1) 50%, 
+    rgba(155, 153, 153, 1) 51%, 
+    transparent 0%
+  );
+  pointer-events: none;
+  transform: translate(0%, 0%);
+  opacity: 0;
+  transition: all 0.8s ease;
+  z-index: 1;
+}
+button#enable-sound.active::before {
+  transform: translate(0%, 0%) scale(5);
+  transform-origin: var(--x) var(--y); /* grossit depuis le clic */
+  opacity: 1;
+}
+/* Quand on survole : l'effet devient visible */
+button#enable-sound:hover::before {
+  opacity: 1;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+
+.svg-wrapper svg{
+  
+  width: 30px;
+  height: auto;
+  
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+/*
+  fill: rgb(155, 153, 153);
+    mix-blend-mode: difference; 
+    transition: color 0.3s ease-in-out;
+    z-index: 2;
+    */
+}
+
+.svg-wrapper svg:hover {
+
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+/*---------------------------------------------Comportement du texte---------------------------------------------*/
+
+button#enable-sound:hover span {
+  opacity: 1;
+
+  /*
+    color: rgb(155, 153, 153);
+    mix-blend-mode: screen;  ou multiply, screen, etc. 
+    transition: color 0.3s ease-in-out;
+    z-index: 2;
+    */
+}
+
+button#enable-sound span {
+  color: rgb(155, 153, 153);
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+  /* masque qui révèle localement selon la position de la souris */
+
+
+button#enable-sound .bg-reveal{
+  
+  position: absolute;
+  inset: 0; /* occupe tout l'espace du bouton */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+  
+
+    mask-image: radial-gradient(
+    100px circle at var(--x, -100px) var(--y, -100px),
+    black 0%,
+    black 20%,
+    transparent 60%
+  );
+  -webkit-mask-image: radial-gradient(
+    100px circle at var(--x, -100px) var(--y, -100px),
+    black 0%,
+    black 20%,
+    transparent 60%
+  );
+  mask-repeat: no-repeat;
+  transition: mask-image 0.8s ease;
+  pointer-events: none;
+}
+
+button#enable-sound .bg-reveal svg{
+    fill: white;
+    position: absolute;
+    left: 40%;
+    transform-origin: center;
+}
+
+
+button#enable-sound.active .bg-reveal {
+  mask-image: radial-gradient(
+    400px circle at var(--x) var(--y),
+    black 0%,
+    
+    black 100%
+  );
+  transform-origin: 50% 50%;
+  transition: mask-image 0.8s ease-out;
+}
+
+
+
+
+
+
+/* Empêche tous les effets au survol après clic */
+button#enable-sound.clicked:hover::before,
+button#enable-sound.clicked:hover .svg-wrapper,
+button#enable-sound.clicked:hover span {
+  opacity: 1 !important;
+  
+  transition: none !important;
+  border: none !important;
+}
+
+/* Évite le changement du bord ou autres effets */
+button#enable-sound.clicked:hover {
+  
+  
+}
+
+button#enable-sound.clicked {
+  opacity: 1 !important;
+  
+}
+
+button#enable-sound.clicked .bg-reveal {
+  mask-image: radial-gradient(
+    600px circle at var(--x, var(--x)) var(--y, var(--y)),
+    black 0%,
+    black 99%,
+    black 100%
+  );
+  transition: mask-image 0.8s ease-out;
+}
+
+
+.slash {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 0;
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+svg.unmuted .slash {
+  stroke-dashoffset: 250;
+  opacity: 0;
+}
+
+
+button#enable-sound .dispa svg{
+  position: absolute;
+  opacity: 0;
+  fill: rgb(155, 153, 153);
+  left: 100%;
+  transition: opacity 0.5s ease-in-out;
+  transition: all 0.1s ease;
+}
+
+button#enable-sound .dispa {
+  background: rgb(155, 153, 153) !important;
+  animation: phorm 2s ease forwards;
+  inset: 1;
+
+
+  position: absolute;
+  inset: 0; /* occupe tout l'espace du bouton */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+
+
+}
+
+@keyframes phorm {
+  0% {
+    transform: scaleX(1) scaleY(1) translateY(0);
+    transform-origin: left left;
+    opacity: 1;
+  }
+
+  20% {
+    
+    opacity: 1;
+  }
+
+  60% {
+    
+
+    transform: scaleX(0.8) scaleY(1) translateY(0);
+    opacity: 1;
+  }
+
+  80% {
+    
+
+    
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleX(0.8) scaleY(0.1) translateY(0);
+    opacity: 0.5;
+  }
+}
+
+button#enable-sound.no-before::before {
+  display: none !important;
+  content: none !important;
+
+
+}
+
+button#enable-sound.idle{
+  border: dashed rgb(155, 153, 153);
+}

@@ -1,10 +1,6 @@
 import { lancerJeu } from './js/main.js';
 
 
-const btnBoom = document.getElementById('hoverExplosion');
-btnBoom.addEventListener('click', triggerExplosion);
-
-
 
 
 
@@ -33,6 +29,10 @@ soundHover.addEventListener("mouseleave", () => {
   audioFeu.pause();
   audioFeu.currentTime = 0;
 });
+
+
+const btnBoom = document.getElementById('hoverExplosion');
+btnBoom.addEventListener('click', triggerExplosion);
 
 
 
