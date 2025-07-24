@@ -42,9 +42,12 @@ navbar.addEventListener("mouseleave", () => {
 
 const button = document.getElementById("enable-sound");
 
-const spanTexte = document.querySelector(".text-base")
+const spanTexte = document.querySelector(".text-base");
 
 const icon = document.getElementById("svg-unmute");
+
+const volume = document.querySelector(".volume");
+
 
 const bgreveal = document.querySelector(".bg-reveal");
 
@@ -103,7 +106,7 @@ button.addEventListener("click", (e) => {
     icon.classList.add("unmuted");
     spanTexte.innerHTML="";
     
-  }, 400);
+  }, 100);
 
   setTimeout(() => {
     bgreveal.classList.add("dispa");
@@ -112,10 +115,11 @@ button.addEventListener("click", (e) => {
     button.classList.add("no-before");
 
     button.classList.add("before");
-  }, 500);
+  }, 1000);
 
   setTimeout(() => {
      button.classList.add("idle");
+     volume.classList.add("border");
   }, 400);
 
 

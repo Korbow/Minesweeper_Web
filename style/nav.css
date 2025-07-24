@@ -153,198 +153,129 @@ nav{
     }
 }
 
+/*================================================================================================*/
+/*== [ POSITIONNEMENT GÉNÉRAL DES OPTIONS ] ======================================================*/
+/*================================================================================================*/
 
-
-.options{
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    right: 2%;
-    top: 3%;
-    z-index: 6;
+.options {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  right: 2%;
+  top: 3%;
+  z-index: 6;
 }
 
-.volume{
-    background-color: rgba(0, 0, 0, 0);
-    padding: 2% 4%;
-    color: white;
-    border-radius: 5%;
+.volume {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 2% 4%;
+  color: white;
+  border-radius: 5%;
 }
 
 
-
-/*---------------------------------------------Comportement du composant------------------------------------------------------*/
-
+/*================================================================================================*/
+/*== [ BOUTON PRINCIPAL: #enable-sound ] =========================================================*/
+/*================================================================================================*/
 
 button#enable-sound {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-family: inherit;
   font-size: 20px;
-  color: white;
-  width: 250px;
-
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* gap: 0.6em;  espace entre le texte et l'icône */
-
-  border:  dashed rgba(155, 153, 153, 0); /* invisible mais présente */
-  transition: border-color 0.5s ease;
-
-
-  background-color: transparent;
-  padding: 0.8em 1.6em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 15px;
   font-weight: 1000;
-  text-wrap: nowrap;
+  color: white;
+  background-color: transparent;
+
+  width: 250px;
+  padding: 0.8em 1.6em;
+
+  border: dashed rgba(155, 153, 153, 0); /* invisible mais présente */
+  border-radius: 15px;
+  cursor: pointer;
+
   overflow: hidden;
+  text-wrap: nowrap;
   isolation: isolate;
-  
-  
+
+  transition: border-color 0.5s ease;
 }
 
-button#enable-sound:hover{
-    transition: all 0.5 step-end;
-    
-    padding: 0.8em 1.6em;
+button#enable-sound:hover {
+  transition: all 0.5s step-end;
+  padding: 0.8em 1.6em;
 }
 
 
+/*================================================================================================*/
+/*== [ SVG WRAPPER DANS LE BOUTON ] =============================================================*/
+/*================================================================================================*/
 
-
-
-
-/*-----------------------------------Comportement du svg wrapper normal, hover, active -----------------------------------*/
 button#enable-sound .svg-wrapper {
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;            /* pas de décalage */
-  padding: 0;
-  line-height: 1;       /* éviter l'espace vertical */
-  vertical-align: middle;
 
   position: relative;
   margin-right: 10%;
-  
+  margin: 0;
+  padding: 0;
 
+  line-height: 1;
+  vertical-align: middle;
   pointer-events: none;
-  opacity: 1;
+
   background-color: #c4c6c700;
-  transition: opacity 0.5s ease-in-out;
-  transition: left 0.5s ease-in-out;
-  transition: background-color 0.5 ease;
+  opacity: 1;
   z-index: 2;
+
+  transition: 
+    opacity 0.5s ease-in-out,
+    left 0.5s ease-in-out,
+    background-color 0.5s ease;
 }
 
-button#enable-sound:hover .svg-wrapper {
+button#enable-sound:hover .svg-wrapper,
+button#enable-sound:active .svg-wrapper,
+button#enable-sound.idle .svg-wrapper {
   opacity: 1;
-  
-  transition: opacity 0.5s ease-in-out;
-  transition: left 0.5s ease-in-out;
-  
+  transition: 
+    opacity 0.5s ease-in-out,
+    left 0.5s ease-in-out;
 }
 
-button#enable-sound:active .svg-wrapper{
-  opacity: 1;
+button#enable-sound:active .svg-wrapper {
   left: 0%;
-  transition: opacity 0.5s ease-in-out;
-  transition: left 0.5s ease-in-out;
-}
-
-button#enable-sound:hover .svg-wrapper {
-  opacity: 1;
-  
-  transition: opacity 0.5s ease-in-out;
-  transition: left 0.5s ease-in-out;
-  
 }
 
 button#enable-sound.idle .svg-wrapper {
-  opacity: 1;
   left: 60%;
-  transition: opacity 0.5s ease-in-out;
-  transition: left 0.8s ease-in-out;
-  
 }
 
 
+/*================================================================================================*/
+/*== [ SVG DANS LE WRAPPER ] =====================================================================*/
+/*================================================================================================*/
 
-
-
-button#enable-sound::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    100px circle at var(--x) var(--y), /* valeur par défaut hors écran */
-    rgba(155, 153, 153, 1) 0%,
-    rgba(155, 153, 153, 1) 50%, 
-    rgba(155, 153, 153, 1) 51%, 
-    transparent 0%
-  );
-  pointer-events: none;
-  transform: translate(0%, 0%);
-  opacity: 0;
-  transition: all 0.8s ease;
-  z-index: 1;
-}
-button#enable-sound.active::before {
-  transform: translate(0%, 0%) scale(5);
-  transform-origin: var(--x) var(--y); /* grossit depuis le clic */
-  opacity: 1;
-}
-/* Quand on survole : l'effet devient visible */
-button#enable-sound:hover::before {
-  opacity: 1;
-}
-
-
-/*--------------------------------------------------------------------------------------------------------*/
-
-
-.svg-wrapper svg{
-  
+.svg-wrapper svg {
   width: 30px;
   height: auto;
-  
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
-/*
-  fill: rgb(155, 153, 153);
-    mix-blend-mode: difference; 
-    transition: color 0.3s ease-in-out;
-    z-index: 2;
-    */
 }
 
 .svg-wrapper svg:hover {
-
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
 
 
-/*---------------------------------------------Comportement du texte---------------------------------------------*/
-
-button#enable-sound:hover span {
-  opacity: 1;
-
-  /*
-    color: rgb(155, 153, 153);
-    mix-blend-mode: screen;  ou multiply, screen, etc. 
-    transition: color 0.3s ease-in-out;
-    z-index: 2;
-    */
-}
+/*================================================================================================*/
+/*== [ TEXTE DU BOUTON ] =========================================================================*/
+/*================================================================================================*/
 
 button#enable-sound span {
   color: rgb(155, 153, 153);
@@ -352,31 +283,63 @@ button#enable-sound span {
   z-index: 1;
 }
 
+button#enable-sound:hover span {
+  opacity: 1;
+}
 
 
+/*================================================================================================*/
+/*== [ MASQUE RADIAL DÉCLENCHÉ AU CLIC : ::before ] ==============================================*/
+/*================================================================================================*/
 
-
-
-
-
-
-
-
-  /* masque qui révèle localement selon la position de la souris */
-
-
-button#enable-sound .bg-reveal{
-  
+button#enable-sound::before {
+  content: '';
   position: absolute;
-  inset: 0; /* occupe tout l'espace du bouton */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  transform: translate(0%, 0%);
+  opacity: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    100px circle at var(--x) var(--y),
+    rgba(155, 153, 153, 1) 0%,
+    rgba(155, 153, 153, 1) 50%,
+    rgba(155, 153, 153, 1) 51%,
+    transparent 0%
+  );
+
+  transition: all 0.8s ease;
+}
+
+button#enable-sound.active::before {
+  transform: translate(0%, 0%) scale(5);
+  transform-origin: var(--x) var(--y);
+  opacity: 1;
+}
+
+button#enable-sound:hover::before {
+  opacity: 1;
+}
+
+
+/*================================================================================================*/
+/*== [ BG-REVEAL : MASQUE LOCAL SELON LA SOURIS ] ================================================*/
+/*================================================================================================*/
+
+button#enable-sound .bg-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
-  z-index: 5;
-  
 
-    mask-image: radial-gradient(
+  pointer-events: none;
+
+  mask-image: radial-gradient(
     100px circle at var(--x, -100px) var(--y, -100px),
     black 0%,
     black 20%,
@@ -390,22 +353,21 @@ button#enable-sound .bg-reveal{
   );
   mask-repeat: no-repeat;
   transition: mask-image 0.8s ease;
-  pointer-events: none;
 }
 
-button#enable-sound .bg-reveal svg{
-    fill: white;
-    position: absolute;
-    left: 40%;
-    transform-origin: center;
+button#enable-sound .bg-reveal svg {
+  fill: white;
+  position: absolute;
+  left: 40%;
+  transform-origin: center;
 }
+
 
 
 button#enable-sound.active .bg-reveal {
   mask-image: radial-gradient(
     400px circle at var(--x) var(--y),
     black 0%,
-    
     black 100%
   );
   transform-origin: 50% 50%;
@@ -413,29 +375,20 @@ button#enable-sound.active .bg-reveal {
 }
 
 
+/*================================================================================================*/
+/*== [ ÉTAT : CLICKED - BLOQUE LES HOVERS ] ======================================================*/
+/*================================================================================================*/
 
-
-
-
-/* Empêche tous les effets au survol après clic */
 button#enable-sound.clicked:hover::before,
 button#enable-sound.clicked:hover .svg-wrapper,
 button#enable-sound.clicked:hover span {
   opacity: 1 !important;
-  
   transition: none !important;
   border: none !important;
 }
 
-/* Évite le changement du bord ou autres effets */
-button#enable-sound.clicked:hover {
-  
-  
-}
-
 button#enable-sound.clicked {
   opacity: 1 !important;
-  
 }
 
 button#enable-sound.clicked .bg-reveal {
@@ -449,42 +402,47 @@ button#enable-sound.clicked .bg-reveal {
 }
 
 
+/*================================================================================================*/
+/*== [ SLASH ANIMATION POUR MUTE/UNMUTE ] ========================================================*/
+/*================================================================================================*/
+
 .slash {
   stroke-dasharray: 250;
   stroke-dashoffset: 0;
   transition: all 0.5s ease;
   opacity: 1;
 }
+
 svg.unmuted .slash {
   stroke-dashoffset: 250;
   opacity: 0;
 }
 
 
-button#enable-sound .dispa svg{
-  position: absolute;
-  opacity: 0;
-  fill: rgb(155, 153, 153);
-  left: 100%;
-  transition: opacity 0.5s ease-in-out;
-  transition: all 0.1s ease;
-}
+/*================================================================================================*/
+/*== [ ÉLÉMENT DISPA : TRANSITION APRÈS CLIC ] ===================================================*/
+/*================================================================================================*/
 
 button#enable-sound .dispa {
-  background: rgb(155, 153, 153) !important;
-  animation: phorm 2s ease forwards;
-  inset: 1;
-
-
   position: absolute;
-  inset: 0; /* occupe tout l'espace du bouton */
+  inset: 0;
+  z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 2;
 
+  background: rgb(155, 153, 153) !important;
+  animation: phorm 1s ease forwards;
+}
 
+button#enable-sound .dispa svg {
+  position: absolute;
+  transform: scale(1%);
+  opacity: 0;
+  fill: rgb(255, 255, 255);
+  transition: all 0.8s ease-in-out;
 }
 
 @keyframes phorm {
@@ -493,39 +451,38 @@ button#enable-sound .dispa {
     transform-origin: left left;
     opacity: 1;
   }
-
   20% {
-    
     opacity: 1;
   }
-
-  60% {
-    
-
-    transform: scaleX(0.8) scaleY(1) translateY(0);
-    opacity: 1;
-  }
-
-  80% {
-    
-
-    
-    opacity: 1;
-  }
-
+  80% {}
   100% {
     transform: scaleX(0.8) scaleY(0.1) translateY(0);
     opacity: 0.5;
   }
 }
 
+
+/*================================================================================================*/
+/*== [ ÉTATS SPÉCIAUX: no-before et idle ] =======================================================*/
+/*================================================================================================*/
+
 button#enable-sound.no-before::before {
   display: none !important;
   content: none !important;
-
-
 }
 
-button#enable-sound.idle{
-  border: dashed rgb(155, 153, 153);
+
+
+.volume{
+  border: dashed rgba(155, 153, 153, 0);
+  transition: all 0.5s ease; 
 }
+
+.volume.border{
+  border: dashed rgb(155, 153, 153, 1);
+}
+
+/*================================================================================================*/
+/*== [ CONTROLE VOLUME: gestion de la barre de son au cours du tps ] =======================================================*/
+/*================================================================================================*/
+
