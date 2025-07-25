@@ -50,48 +50,37 @@ button.addEventListener("click", (e) => {
   button.style.setProperty("--y", `${y}px`);
 
 
-  // Active la classe
-
-
+  // Début du process d'animation
     volume.classList.add("one");
     
-
-  // Après l'animation, garde "clicked" mais retire "active"
+  // Deuxieme phase du process d'animation
   setTimeout(() => {
-     volume.classList.remove("one");
-     
-
-    button.classList.add("clicked");
+    volume.classList.remove("one");
+    volume.classList.add("two");
   }, 1000);
 
+  // Troisieme phase du process d'animation
   setTimeout(() => {
-    icon.classList.add("unmuted");
+    volume.classList.add("three");
     spanTexte.innerHTML="";
-    
   }, 100);
 
+  // Quatrieme phase du process d'animation
   setTimeout(() => {
-    bgreveal.classList.add("dispa");
+    volume.classList.add("four");
     bgreveal.classList.remove("bg-reveal");
-    button.classList.remove("clicked");
-    button.classList.add("no-before");
-
-    button.classList.add("before");
   }, 1000);
 
+  // Derniere phase du process d'animation
   setTimeout(() => {
     isunmute = true;
     sessionStorage.setItem("isunmute", "true");
-
-    button.classList.add("idle");
-    volume.classList.add("border");
+    volume.classList.add("five");
   }, 400);
 
 
-
-
 });
-
+/*
 const savedUnmute = sessionStorage.getItem("isunmute");
 
 if (savedUnmute === "true") {
@@ -136,3 +125,5 @@ function setVolumeForAllAudios(volume) {
     audio.volume = volume;
   });
 }
+
+*/

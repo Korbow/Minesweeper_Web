@@ -85,7 +85,7 @@ button#enable-sound .svg-wrapper {
 
 button#enable-sound:hover .svg-wrapper,
 button#enable-sound:active .svg-wrapper,
-button#enable-sound.idle .svg-wrapper {
+.volume.five button#enable-sound .svg-wrapper {
   opacity: 1;
   transition: 
     opacity 0.5s ease-in-out,
@@ -96,7 +96,7 @@ button#enable-sound:active .svg-wrapper {
   left: 0%;
 }
 
-button#enable-sound.idle .svg-wrapper {
+.volume.five button#enable-sound .svg-wrapper {
   left: 60%;
 }
 
@@ -224,19 +224,19 @@ button#enable-sound .bg-reveal svg {
 /*== [ ÉTAT : CLICKED - BLOQUE LES HOVERS ] ======================================================*/
 /*================================================================================================*/
 
-button#enable-sound.clicked:hover::before,
-button#enable-sound.clicked:hover .svg-wrapper,
-button#enable-sound.clicked:hover span {
+.volume.two button#enable-sound:hover::before,
+.volume.two button#enable-sound:hover .svg-wrapper,
+.volume.two button#enable-sound:hover span {
   opacity: 1 !important;
   transition: none !important;
   border: none !important;
 }
 
-button#enable-sound.clicked {
+.volume.two button{
   opacity: 1 !important;
 }
 
-button#enable-sound.clicked .bg-reveal {
+.volume.two .bg-reveal {
   mask-image: radial-gradient(
     600px circle at var(--x, var(--x)) var(--y, var(--y)),
     black 0%,
@@ -258,7 +258,7 @@ button#enable-sound.clicked .bg-reveal {
   opacity: 1;
 }
 
-svg.unmuted .slash {
+.volume.three svg .slash {
   stroke-dashoffset: 250;
   opacity: 0;
 }
@@ -268,7 +268,7 @@ svg.unmuted .slash {
 /*== [ ÉLÉMENT DISPA : TRANSITION APRÈS CLIC ] ===================================================*/
 /*================================================================================================*/
 
-button#enable-sound .dispa {
+.volume.four button#enable-sound #div_mask {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -282,7 +282,7 @@ button#enable-sound .dispa {
   animation: phorm 0.8s forwards ;
 }
 
-button#enable-sound .dispa svg {
+.volume.four button#enable-sound #div_mask svg {
   position: absolute;
   transform: scale(100%) translateY(1120%);
   opacity: 0;
@@ -317,7 +317,7 @@ button#enable-sound .dispa svg {
 /*== [ ÉTATS SPÉCIAUX: no-before et idle ] =======================================================*/
 /*================================================================================================*/
 
-button#enable-sound.no-before::before {
+.volume.four button#enable-sound::before {
   display: none !important;
   content: none !important;
 }
@@ -330,7 +330,7 @@ button#enable-sound.no-before::before {
   
 }
 
-.volume.border{
+.volume.five{
   border: dashed rgb(155, 153, 153, 1);
 }
 
@@ -373,7 +373,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-.volume.border .volume-container {
+.volume.five .volume-container {
 display: flex;
 
 }
