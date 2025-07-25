@@ -12,7 +12,7 @@ const bgreveal = document.querySelector(".bg-reveal");
 
 let targetX = 0, targetY = 0;
 let currentX = 0, currentY = 0;
-
+let isunmute = false;
 
 button.addEventListener("mousemove", (e) => {
   const rect = button.getBoundingClientRect();
@@ -53,11 +53,14 @@ button.addEventListener("click", (e) => {
   // Active la classe
 
 
-    button.classList.add("active");
+    volume.classList.add("one");
+    
 
   // Après l'animation, garde "clicked" mais retire "active"
   setTimeout(() => {
-    button.classList.remove("active");
+     volume.classList.remove("one");
+     
+
     button.classList.add("clicked");
   }, 1000);
 
@@ -77,8 +80,11 @@ button.addEventListener("click", (e) => {
   }, 1000);
 
   setTimeout(() => {
-     button.classList.add("idle");
-     volume.classList.add("border");
+    isunmute = true;
+    sessionStorage.setItem("isunmute", "true");
+
+    button.classList.add("idle");
+    volume.classList.add("border");
   }, 400);
 
 
@@ -86,14 +92,47 @@ button.addEventListener("click", (e) => {
 
 });
 
+const savedUnmute = sessionStorage.getItem("isunmute");
+
+if (savedUnmute === "true") {
+  isunmute = true;
+  spanTexte.innerHTML = "";
+  button.classList.add("no-before", "before", "idle", "clicked");
+  volume.classList.add("border");
+  bgreveal.classList.add("dispa");
+  bgreveal.classList.remove("bg-reveal");
+}
+else {
+    isunmute = false;
+
+}
+
+window.addEventListener('DOMContentLoaded', () => {
 
 
-const volumeSlider = document.getElementById('volume-slider');
-const audio = document.getElementById('audio');
 
-// Initial volume
-audio.volume = parseFloat(volumeSlider.value);
+  const volumeSlider = document.getElementById('volume-slider');
+  const savedVolume = localStorage.getItem('globalVolume');
+  const initialVolume = savedVolume !== null ? parseFloat(savedVolume) : 0.5;
 
-volumeSlider.addEventListener('input', () => {
-  audio.volume = parseFloat(volumeSlider.value);
+  // Appliquer le volume sauvegardé à tous les audios
+  setVolumeForAllAudios(initialVolume);
+
+  // Si le slider est présent sur la page, synchroniser sa position
+  if (volumeSlider) {
+    volumeSlider.value = initialVolume;
+
+    // Lorsqu'on modifie le slider
+    volumeSlider.addEventListener('input', () => {
+      const currentVolume = parseFloat(volumeSlider.value);
+      setVolumeForAllAudios(currentVolume);
+      localStorage.setItem('globalVolume', currentVolume);
+    });
+  }
 });
+
+function setVolumeForAllAudios(volume) {
+  document.querySelectorAll('audio').forEach(audio => {
+    audio.volume = volume;
+  });
+}
