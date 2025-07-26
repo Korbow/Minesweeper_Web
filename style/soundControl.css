@@ -1,16 +1,18 @@
 /*================================================================================================*/
-/*== [ POSITIONNEMENT GÉNÉRAL DES OPTIONS ] ======================================================*/
+/*== [ COMPORTEMENT DE BASE ] ======================================================*/
 /*================================================================================================*/
+
 
 .options {
   position: fixed;
-  display: flex;
+  display: flex; 
   flex-direction: row;
   right: 2%;
   top: 3%;
   z-index: 6;
 }
 
+/*== [ VOLUME ] ==*/
 .volume {
   background-color: rgba(0, 0, 0, 0);
   padding: 2% 4%;
@@ -19,9 +21,54 @@
 }
 
 
-/*================================================================================================*/
-/*== [ BOUTON PRINCIPAL: #enable-sound ] =========================================================*/
-/*================================================================================================*/
+.volume{
+  border: dashed rgba(155, 153, 153, 0);
+  transition: all 0.5s ease; 
+  
+}
+
+
+
+.volume-container {
+  display: none;
+  position: absolute;
+  align-items: center;
+  gap: 1rem;
+  width: 200px;
+  
+}
+
+
+
+
+input[type="range"] {
+  width: 150px;
+  cursor: pointer;
+  appearance: none;
+  background: rgb(155, 153, 153, 1);
+  height: 6px;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+}
+/* btn*/
 
 button#enable-sound {
   position: relative;
@@ -55,10 +102,6 @@ button#enable-sound:hover {
 }
 
 
-/*================================================================================================*/
-/*== [ SVG WRAPPER DANS LE BOUTON ] =============================================================*/
-/*================================================================================================*/
-
 button#enable-sound .svg-wrapper {
   display: flex;
   align-items: center;
@@ -83,28 +126,6 @@ button#enable-sound .svg-wrapper {
     background-color 0.5s ease;
 }
 
-button#enable-sound:hover .svg-wrapper,
-button#enable-sound:active .svg-wrapper,
-.volume.five button#enable-sound .svg-wrapper {
-  opacity: 1;
-  transition: 
-    opacity 0.5s ease-in-out,
-    left 0.5s ease-in-out;
-}
-
-button#enable-sound:active .svg-wrapper {
-  left: 0%;
-}
-
-.volume.five button#enable-sound .svg-wrapper {
-  left: 60%;
-}
-
-
-/*================================================================================================*/
-/*== [ SVG DANS LE WRAPPER ] =====================================================================*/
-/*================================================================================================*/
-
 .svg-wrapper svg {
   width: 30px;
   height: auto;
@@ -112,30 +133,15 @@ button#enable-sound:active .svg-wrapper {
   transition: opacity 0.3s ease-in-out;
 }
 
-.svg-wrapper svg:hover {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-
-
-/*================================================================================================*/
-/*== [ TEXTE DU BOUTON ] =========================================================================*/
-/*================================================================================================*/
-
 button#enable-sound span {
   color: rgb(155, 153, 153);
-  transition: opacity 0.3s ease-in-out;
   z-index: 1;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 650;
 }
 
-button#enable-sound:hover span {
-  opacity: 1;
-}
 
-
-/*================================================================================================*/
-/*== [ MASQUE RADIAL DÉCLENCHÉ AU CLIC : ::before ] ==============================================*/
-/*================================================================================================*/
+/*== [ MASQUE ] ==*/
 
 button#enable-sound::before {
   content: '';
@@ -169,9 +175,6 @@ button#enable-sound:hover::before {
 }
 
 
-/*================================================================================================*/
-/*== [ BG-REVEAL : MASQUE LOCAL SELON LA SOURIS ] ================================================*/
-/*================================================================================================*/
 
 button#enable-sound .bg-reveal {
   position: absolute;
@@ -209,6 +212,18 @@ button#enable-sound .bg-reveal svg {
 
 
 
+
+
+
+.slash {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 0;
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+/*================================================================================================*/
+/*== [ PREMIERE PARTIE DE L ANIMATION ] =========================================================*/
+/*================================================================================================*/
 .volume.one .bg-reveal {
   mask-image: radial-gradient(
     400px circle at var(--x) var(--y),
@@ -220,21 +235,11 @@ button#enable-sound .bg-reveal svg {
 }
 
 
+
 /*================================================================================================*/
-/*== [ ÉTAT : CLICKED - BLOQUE LES HOVERS ] ======================================================*/
+/*== [ DEUXIEME PARTIE DE L ANIMATION ] =============================================================*/
 /*================================================================================================*/
 
-.volume.two button#enable-sound:hover::before,
-.volume.two button#enable-sound:hover .svg-wrapper,
-.volume.two button#enable-sound:hover span {
-  opacity: 1 !important;
-  transition: none !important;
-  border: none !important;
-}
-
-.volume.two button{
-  opacity: 1 !important;
-}
 
 .volume.two .bg-reveal {
   mask-image: radial-gradient(
@@ -247,27 +252,19 @@ button#enable-sound .bg-reveal svg {
 }
 
 
-/*================================================================================================*/
-/*== [ SLASH ANIMATION POUR MUTE/UNMUTE ] ========================================================*/
-/*================================================================================================*/
 
-.slash {
-  stroke-dasharray: 250;
-  stroke-dashoffset: 0;
-  transition: all 0.5s ease;
-  opacity: 1;
-}
+/*================================================================================================*/
+/*== [ TROISIEME PARTIE DE L ANIMATION ] =====================================================================*/
+/*================================================================================================*/
 
 .volume.three svg .slash {
   stroke-dashoffset: 250;
   opacity: 0;
 }
 
-
 /*================================================================================================*/
-/*== [ ÉLÉMENT DISPA : TRANSITION APRÈS CLIC ] ===================================================*/
+/*== [ QUATRIEME PARTIE DE L ANIMATION ] =========================================================================*/
 /*================================================================================================*/
-
 .volume.four button#enable-sound #div_mask {
   position: absolute;
   inset: 0;
@@ -313,73 +310,29 @@ button#enable-sound .bg-reveal svg {
 }
 
 
-/*================================================================================================*/
-/*== [ ÉTATS SPÉCIAUX: no-before et idle ] =======================================================*/
-/*================================================================================================*/
-
 .volume.four button#enable-sound::before {
   display: none !important;
-  content: none !important;
-}
-
-
-
-.volume{
-  border: dashed rgba(155, 153, 153, 0);
-  transition: all 0.5s ease; 
   
 }
+
+
+
+
+/*================================================================================================*/
+/*== [ CINQUEME PARTIE DE L ANIMATION ] ==============================================*/
+/*================================================================================================*/
+
+.volume.five button#enable-sound .svg-wrapper {
+  left: 60%;
+}
+
 
 .volume.five{
   border: dashed rgb(155, 153, 153, 1);
 }
 
-
-.volume-container {
-  display: none;
-  position: absolute;
-  align-items: center;
-  gap: 1rem;
-  width: 200px;
-  
-}
-
-input[type="range"] {
-  width: 150px;
-  cursor: pointer;
-  appearance: none;
-  background: rgb(155, 153, 153, 1);
-  height: 6px;
-  border-radius: 5px;
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #ffffff;
-  border-radius: 50%;
-  border: none;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  background: #ffffff;
-  border: none;
-  border-radius: 50%;
-}
-
-
 .volume.five .volume-container {
 display: flex;
 
 }
-
-
-/*================================================================================================*/
-/*== [ CONTROLE VOLUME: gestion de la barre de son au cours du tps ] =======================================================*/
-/*================================================================================================*/
 

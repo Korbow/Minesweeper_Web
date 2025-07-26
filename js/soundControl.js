@@ -7,12 +7,17 @@ const icon = document.getElementById("svg-unmute");
 
 const volume = document.querySelector(".volume");
 
-
 const bgreveal = document.querySelector(".bg-reveal");
+
+
+
 
 let targetX = 0, targetY = 0;
 let currentX = 0, currentY = 0;
-let isunmute = false;
+
+if (sessionStorage.getItem("isunmute") === null) {
+  sessionStorage.setItem("isunmute", "false");
+}
 
 button.addEventListener("mousemove", (e) => {
   const rect = button.getBoundingClientRect();
@@ -73,57 +78,60 @@ button.addEventListener("click", (e) => {
 
   // Derniere phase du process d'animation
   setTimeout(() => {
-    isunmute = true;
+
     sessionStorage.setItem("isunmute", "true");
     volume.classList.add("five");
+    
+    
   }, 400);
 
 
 });
-/*
+// Récupère les données persistantes
 const savedUnmute = sessionStorage.getItem("isunmute");
+const savedVolume = sessionStorage.getItem("globalVolume");
 
-if (savedUnmute === "true") {
-  isunmute = true;
+console.log("[DEBUG] savedUnmute =", savedUnmute);
+// Détecte si c’est un rafraîchissement
+const isRefresh = performance.getEntriesByType("navigation")[0]?.type === "reload";
+
+if (performance.getEntriesByType("navigation")[0]?.type === "reload"){
+  sessionStorage.setItem("isunmute", "false");
+}
+// Si on change de page (pas un rafraîchissement) ET que le son était activé :
+if (!isRefresh && savedUnmute === "true") {
   spanTexte.innerHTML = "";
-  button.classList.add("no-before", "before", "idle", "clicked");
-  volume.classList.add("border");
-  bgreveal.classList.add("dispa");
-  bgreveal.classList.remove("bg-reveal");
-}
-else {
-    isunmute = false;
+  
+  icon.classList.add("unmuted");
+  volume.classList.add("four", "five");
+  bgreveal?.classList.remove("bg-reveal");
 
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-
-
-
-  const volumeSlider = document.getElementById('volume-slider');
-  const savedVolume = localStorage.getItem('globalVolume');
   const initialVolume = savedVolume !== null ? parseFloat(savedVolume) : 0.5;
+  setVolumeForAllAudios(initialVolume);
+  const slider = document.getElementById("volume-slider");
+  if (slider) slider.value = initialVolume;
+}
+else{
+  console.log("[DEBUG] savedUnmute =", savedUnmute);
+}
 
-  // Appliquer le volume sauvegardé à tous les audios
+// Gestion du volume pour tous les audios
+const volumeSlider = document.getElementById("volume-slider");
+if (volumeSlider) {
+  const initialVolume = savedVolume !== null ? parseFloat(savedVolume) : 0.5;
+  volumeSlider.value = initialVolume;
   setVolumeForAllAudios(initialVolume);
 
-  // Si le slider est présent sur la page, synchroniser sa position
-  if (volumeSlider) {
-    volumeSlider.value = initialVolume;
-
-    // Lorsqu'on modifie le slider
-    volumeSlider.addEventListener('input', () => {
-      const currentVolume = parseFloat(volumeSlider.value);
-      setVolumeForAllAudios(currentVolume);
-      localStorage.setItem('globalVolume', currentVolume);
-    });
-  }
-});
-
-function setVolumeForAllAudios(volume) {
-  document.querySelectorAll('audio').forEach(audio => {
-    audio.volume = volume;
+  volumeSlider.addEventListener("input", () => {
+    const currentVolume = parseFloat(volumeSlider.value);
+    setVolumeForAllAudios(currentVolume);
+    sessionStorage.setItem("globalVolume", currentVolume);
   });
 }
 
-*/
+// Applique le volume global à tous les éléments audio
+function setVolumeForAllAudios(volume) {
+  document.querySelectorAll("audio").forEach(audio => {
+    audio.volume = volume;
+  });
+}
