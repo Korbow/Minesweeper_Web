@@ -2,17 +2,14 @@ var modal = document.getElementById("ModalGameSetting");
 
 
 
-// Get the <span> element that closes the modal
+
 var span = document.getElementsByClassName("close")[0];
 
 document.addEventListener("DOMContentLoaded", () => {
   modal.style.display = "block";
 });
 
-// When the user clicks on <span> (x), close the modal
 
-
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -20,3 +17,20 @@ window.onclick = function(event) {
 }
 
 
+const cards = document.querySelectorAll(".flex-modal-lvl")
+
+cards.forEach((card)=>{
+  card.addEventListener("click", () =>{
+  
+    if (card.id === "modal-flex-lv1"){
+      console.log("facile");
+    }
+    else if(card.id === "modal-flex-lv2"){
+      console.log("moyen");
+    }
+    else if(card.id === "modal-flex-lv3"){
+      console.log("difficile");
+    }
+  });
+
+});

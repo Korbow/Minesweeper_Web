@@ -9,7 +9,9 @@ import {calculNombreAdjacent } from './utils.js';
   
 // Debut du Main
 
-
+const facile = [10, 10, 12];
+const moyen = [15, 15, 32];
+const difficile = [17, 17, 75];
 
 
   export function lancerJeu() {
@@ -31,8 +33,8 @@ import {calculNombreAdjacent } from './utils.js';
     démarrerTimer();
       
   
-    createGrid(10, 10);
-    placementMine(10, 10);
-    calculNombreAdjacent(10, 10);
+    createGrid(moyen);
+    placementMine(moyen);
+    calculNombreAdjacent(moyen);
   }
   

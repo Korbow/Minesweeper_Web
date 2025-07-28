@@ -200,7 +200,7 @@ a{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(10, 40px); /* 10 colonnes */
+  grid-template-columns: repeat(var(--cols), 40px); /* 10 colonnes */
   gap: 5px 16px;
   justify-content: center;
   margin-top: 50px;

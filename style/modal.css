@@ -69,18 +69,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background: linear-gradient(to bottom right, #fffcf2, #fff7e0);
   height: 300px;
   width: 200px;
-
-  transition: all 0.4s;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+  transition: 0.4s ease;
+  transition-property: transform, bow-shadow;
 }
+
 .flex-modal-lvl:hover {
   border: 3px solid #888;
   transform: scale(1.05) rotateZ(-1.7deg);
-
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   transition: transform 0.4s;
 }
+
 .flex-modal-lvl:hover img{
   transform: scale(1.10) rotateZ(1.7deg);
   transition: all 0.5s;
+  
 }
 
 .flex-modal-lvl:active {
@@ -93,9 +97,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
   margin: 4%;
 }
 
-.img-flex-modal{
-height: 150px;
-width: auto;
+.title-flex-modal{
+  height: 10px;
+  padding: 4% 4% 0% 4%;
+  width: auto;
 }
 
 .p-flex-modal{
@@ -104,8 +109,15 @@ padding: 4% 4%;
 width: auto;
 }
 
+.img-flex-modal{
+height: 150px;
+width: auto;
+}
+
+
+
 .flex-modal-lvl img{
-  width: 100px;
+  width: 150px;
   height: auto;
   transition: all 0.7s;
 }

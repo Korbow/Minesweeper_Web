@@ -87,18 +87,18 @@ button.addEventListener("click", (e) => {
 
 
 });
-// Récupère les données persistantes
+
 const savedUnmute = sessionStorage.getItem("isunmute");
 const savedVolume = sessionStorage.getItem("globalVolume");
 
 console.log("[DEBUG] savedUnmute =", savedUnmute);
-// Détecte si c’est un rafraîchissement
+
 const isRefresh = performance.getEntriesByType("navigation")[0]?.type === "reload";
 
 if (performance.getEntriesByType("navigation")[0]?.type === "reload"){
   sessionStorage.setItem("isunmute", "false");
 }
-// Si on change de page (pas un rafraîchissement) ET que le son était activé :
+
 if (!isRefresh && savedUnmute === "true") {
   spanTexte.innerHTML = "";
   
@@ -115,7 +115,7 @@ else{
   console.log("[DEBUG] savedUnmute =", savedUnmute);
 }
 
-// Gestion du volume pour tous les audios
+
 const volumeSlider = document.getElementById("volume-slider");
 if (volumeSlider) {
   const initialVolume = savedVolume !== null ? parseFloat(savedVolume) : 0.5;
@@ -129,7 +129,7 @@ if (volumeSlider) {
   });
 }
 
-// Applique le volume global à tous les éléments audio
+
 function setVolumeForAllAudios(volume) {
   document.querySelectorAll("audio").forEach(audio => {
     audio.volume = volume;
