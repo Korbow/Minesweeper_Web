@@ -5,7 +5,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 200px; /* Location of the box */
+  padding-top: 150px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -13,28 +13,126 @@ body {font-family: Arial, Helvetica, sans-serif;}
   overflow: auto; /* Enable scroll if needed */
   
   z-index: 10;
-  opacity: 0.8; /* Black w/ opacity */
+  opacity: 1; /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background: white;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 40%;
+  padding: 50px;
+  border: 7px double #888;
+  width: 50%;
+  height: 60%;
+  border-radius: 20px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scrollbar-color: #888 rgba(255, 255, 255, 0);
+
+  
+
 }
 
 .modaltitle{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px;
 }
 
 .modaltitle h2{
-    text-decoration: underline;
+  text-decoration: underline;
 }
+
+.modal-flex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 4% 0%;
+  gap: 4%;
+}
+
+.flex-modal-lvl{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: solid 2px #888;
+  border-radius: 20px;
+  gap: 5%;
+  background: linear-gradient(to bottom right, #fffcf2, #fff7e0);
+  height: 300px;
+  width: 200px;
+
+  transition: all 0.4s;
+}
+.flex-modal-lvl:hover {
+  border: 3px solid #888;
+  transform: scale(1.05) rotateZ(-1.7deg);
+
+  transition: transform 0.4s;
+}
+.flex-modal-lvl:hover img{
+  transform: scale(1.10) rotateZ(1.7deg);
+  transition: all 0.5s;
+}
+
+.flex-modal-lvl:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+  transition: all 0.2s;
+
+}
+
+.flex-modal-lvl h3{
+  margin: 4%;
+}
+
+.img-flex-modal{
+height: 150px;
+width: auto;
+}
+
+.p-flex-modal{
+height: 50px;
+padding: 4% 4%;
+width: auto;
+}
+
+.flex-modal-lvl img{
+  width: 100px;
+  height: auto;
+  transition: all 0.7s;
+}
+
+.card-custom{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 0%;
+}
+
+.card-custom button{
+  border: solid 2px #888;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+  border-radius: 20px;
+
+  width: 87%;
+  height: 100%;
+  
+
+  background: linear-gradient(to bottom right, #fffcf2, #fff7e0);
+  transition: all 0.5s;
+}
+.card-custom button:hover {
+  border: 3px solid #888;
+  transform: scale(1.10) rotateZ(1.7deg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.5s;
+}
+
 
 
 /* The Close Button */
