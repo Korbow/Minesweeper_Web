@@ -5,7 +5,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 150px; /* Location of the box */
+  padding-top: 60px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -14,20 +14,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
   
   z-index: 10;
   opacity: 1; /* Black w/ opacity */
+
+  
 }
 
 /* Modal Content */
 .modal-content {
   background: white;
   margin: auto;
-  padding: 50px;
+  padding:  20px 50px 30px 50px;
   border: 7px double #888;
-  width: 50%;
-  height: 60%;
-  border-radius: 20px;
+  width: 45%;
+  height: 70%;
+  
   overflow-y: scroll;
   scrollbar-width: none;
   scrollbar-color: #888 rgba(255, 255, 255, 0);
+
+
+  box-shadow: 0 0 100px 500px rgba(0, 0, 0, 0.4);
 
   
 
@@ -37,7 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 10px;
+  margin: 10px 30px 40px 30px;
 }
 
 .modaltitle h2{
@@ -118,7 +123,7 @@ width: auto;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
   border-radius: 20px;
 
-  width: 87%;
+  width: 95%;
   height: 100%;
   
 
@@ -127,10 +132,11 @@ width: auto;
 }
 .card-custom button:hover {
   border: 3px solid #888;
-  transform: scale(1.10) rotateZ(1.7deg);
+  transform: scale(1.05) ;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 
-  transition: all 0.5s;
+  transition:  0.5s;
+  transition-property: transform, bow-shadow;
 }
 
 
