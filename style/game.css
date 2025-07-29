@@ -195,22 +195,34 @@ a{
 
 
 .contenu{
-  margin: 10% 0%;
+  margin: 3% 0%;
 }
 
-.grid-container {
+
+.grid-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-grid {
   display: grid;
   grid-template-columns: repeat(var(--cols), 40px); /* 10 colonnes */
-  gap: 5px 16px;
+  grid-template-rows: repeat(var(--cols), 40px);
+  gap: 15px ;
   justify-content: center;
   margin-top: 50px;
+  width: 70%;
+  aspect-ratio : 1 / 1;
+  
 }
 
 .grid-cell {
-  width: 50px;
-  height: 50px;
+  width: 125%;
+  height: 125%;
   background-color: #ccc;
   border: 1px solid #999;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;

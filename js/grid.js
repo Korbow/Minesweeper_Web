@@ -1,10 +1,10 @@
 import { reveal } from './reveal.js';
 
-const gridCols = document.querySelector(".grid-container")
+const gridCols = document.querySelector(".game-grid")
 export function createGrid([rows, cols, cmines]) {
-    const gridContainer = document.getElementById("game-grid");
-    contenu.appendChild(gridContainer);
-    gridContainer.innerHTML = ""; // reset si grille
+    const gameGrid = document.getElementById("game-grid");
+    gridSpace.appendChild(gameGrid);
+    gameGrid.innerHTML = ""; // reset si grille
     
     gridCols.style.setProperty("--cols", cols);
     
@@ -34,6 +34,6 @@ export function createGrid([rows, cols, cmines]) {
         reveal(cell, i, gridSize, allCells);
       });
   
-      gridContainer.appendChild(cell);
+      gameGrid.appendChild(cell);
     }
   }

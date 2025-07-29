@@ -2,7 +2,6 @@ var modal = document.getElementById("ModalGameSetting");
 
 
 
-
 var span = document.getElementsByClassName("close")[0];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,12 +23,18 @@ cards.forEach((card)=>{
   
     if (card.id === "modal-flex-lv1"){
       console.log("facile");
+      difficulty = facile;
+      return difficulty;
     }
     else if(card.id === "modal-flex-lv2"){
       console.log("moyen");
+      difficulty = moyen;
+      return difficulty;
     }
     else if(card.id === "modal-flex-lv3"){
       console.log("difficile");
+      difficulty = difficile;
+      return difficulty;
     }
   });
 
