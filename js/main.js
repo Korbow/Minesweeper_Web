@@ -3,21 +3,21 @@ import { createGrid } from './grid.js';
 import { placementMine } from './mines.js';
 import { démarrerTimer, setTimerElement } from './TimerEtScore.js';
 import {calculNombreAdjacent } from './utils.js';
+import { getDifficulty } from './modal.js';
 
 
 
   
 // Debut du Main
 
-const facile = [10, 10, 12];
-const moyen = [14, 14, 30];
-const difficile = [18, 18, 66]
 
-var difficulty = facile;
+
 
   export function lancerJeu() {
     console.log("jeu démarré");
-  
+    
+    const niveau = getDifficulty(); 
+
     const contenu = document.getElementById("contenu");
     const texteAffiche = document.createElement("div");
     contenu.appendChild(texteAffiche);
@@ -34,8 +34,8 @@ var difficulty = facile;
     démarrerTimer();
       
   
-    createGrid(difficulty);
-    placementMine(difficulty);
-    calculNombreAdjacent(difficulty);
+    createGrid(niveau);
+    placementMine(niveau);
+    calculNombreAdjacent(niveau);
   }
   
