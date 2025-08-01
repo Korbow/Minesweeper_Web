@@ -1,4 +1,5 @@
-var modal = document.getElementById("ModalGameSetting");
+var ModalGameSetting = document.getElementById("ModalGameSetting");
+var ModalCustomSetting = document.getElementById("ModalCustomSetting");
 
 var span = document.getElementsByClassName("close")[0];
 
@@ -9,19 +10,22 @@ const difficile = [18, 18, 66]
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  modal.style.display = "block";
+  ModalGameSetting.style.display = "block";
+  ModalCustomSetting.style.display = "none";
 });
 
-
+/*
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == ModalGameSetting) {
+    ModalGameSetting.style.display = "none";
   }
 }
+  */
 
 let difficulty = facile;
 
 const cards = document.querySelectorAll(".flex-modal-lvl")
+const cardCustom = document.getElementById("cardCustom")
 
 cards.forEach((card)=>{
   card.addEventListener("click", () =>{
@@ -30,9 +34,9 @@ cards.forEach((card)=>{
       console.log("facile");
       difficulty = facile;
 
-      modal.classList.add("end");
+      ModalGameSetting.classList.add("end");
       setTimeout(() => {
-      modal.style.display = "none";
+      ModalGameSetting.style.display = "none";
       }, 1300);
 
       return difficulty;
@@ -40,10 +44,10 @@ cards.forEach((card)=>{
     else if(card.id === "modal-flex-lv2"){
       console.log("moyen");
       difficulty = moyen;
-      
-      modal.classList.add("end");
+
+      ModalGameSetting.classList.add("end");
       setTimeout(() => {
-      modal.style.display = "none";
+      ModalGameSetting.style.display = "none";
       }, 1300);
 
       return difficulty;
@@ -53,9 +57,9 @@ cards.forEach((card)=>{
       difficulty = difficile;
 
       
-      modal.classList.add("end");
+      ModalGameSetting.classList.add("end");
       setTimeout(() => {
-      modal.style.display = "none";
+      ModalGameSetting.style.display = "none";
       }, 1300);
 
       return difficulty;
@@ -64,6 +68,12 @@ cards.forEach((card)=>{
     
   });
   
+});
+
+cardCustom.addEventListener("click", () =>{
+ModalGameSetting.style.display = "none";
+ModalCustomSetting.style.display = "block";
+
 });
 
 export function getDifficulty() {

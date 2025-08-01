@@ -84,57 +84,96 @@
 <main>
         <!--Modal -->
     <div id="ModalGameSetting" class="modal">
+    
 
     <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modaltitle">
-            <h2>Selectionnez la difficulté</h2>
-        </div>
-        
-        <div class="modal-flex">
-            <div id="modal-flex-lv1" class="flex-modal-lvl">
-                <div class="title-flex-modal">
-                    <h3>Facile</h3>
-                </div>
-                <div class="img-flex-modal">
-                    <img src="../resources/img/icon-difficulties/icon-lvl-1.png">
-                </div>
-                <div class="p-flex-modal">
-                    <p>Parfait pour appréhender le jeu</p>
-                </div>
+        <div class="modal-content">
+            <div class="modaltitle">
+                <h2>Selectionnez la difficulté</h2>
             </div>
+            
+            <div class="modal-flex">
+                <div class="flex-modal-lvl">
+                    <div class="title-flex-modal">
+                        <h3>Facile</h3>
+                    </div>
+                    <div class="img-flex-modal">
+                        <img src="../resources/img/icon-difficulties/icon-lvl-1.png">
+                    </div>
+                    <div class="p-flex-modal">
+                        <p>Parfait pour appréhender le jeu</p>
+                    </div>
+                </div>
 
-            <div id="modal-flex-lv2" class="flex-modal-lvl">
-                <div class="title-flex-modal">
-                    <h3>Moyen</h3>
+                <div class="flex-modal-lvl">
+                    <div class="title-flex-modal">
+                        <h3>Moyen</h3>
+                    </div>
+                    <div class="img-flex-modal">
+                        <img src="../resources/img/icon-difficulties/icon-lvl-2.png">
+                    </div>
+                    <div class="p-flex-modal">
+                        <p>Pour le challenge</p>
+                    </div>
                 </div>
-                <div class="img-flex-modal">
-                    <img src="../resources/img/icon-difficulties/icon-lvl-2.png">
-                </div>
-                <div class="p-flex-modal">
-                    <p>Pour le challenge</p>
-                </div>
-            </div>
 
-            <div id="modal-flex-lv3" class="flex-modal-lvl">
-                <div class="title-flex-modal">
-                    <h3>Difficile</h3>
-                </div>
-                <div class="img-flex-modal">
-                    <img src="../resources/img/icon-difficulties/icon-lvl-3.png">
-                </div>
-                <div class="p-flex-modal">
-                    <p>Seulement pour les experts !</p>
+                <div class="flex-modal-lvl">
+                    <div class="title-flex-modal">
+                        <h3>Difficile</h3>
+                    </div>
+                    <div class="img-flex-modal">
+                        <img src="../resources/img/icon-difficulties/icon-lvl-3.png">
+                    </div>
+                    <div class="p-flex-modal">
+                        <p>Seulement pour les experts !</p>
+                    </div>
                 </div>
             </div>
+            <div class="cardCustom" id="cardCustom">
+                <button>OU FAIRE UNE PARTIE CUSTOM ?</button>
+            </div>
+            <!--idee: quiz demineur, en ligne un question, en collone vrai faut, et il faut trouver la bonne repose, sinon bombe-->
         </div>
-        <div class="card-custom">
-            <button>OU FAIRE UNE PARTIE CUSTOM ?</button>
-        </div>
-        <!--idee: quiz demineur, en ligne un question, en collone vrai faut, et il faut trouver la bonne repose, sinon bombe-->
+
     </div>
 
+    <!--Deuxieme modale-->
+    <div id="ModalCustomSetting" class="modalCustom">
+
+        <div class="ModalCustomContent">
+            <div class="modaltitle">
+                <h2>Selectionnez les paramètres</h2>
+            </div>
+            
+            <form class="ModalCustomOptions">
+                
+                    <div class="ModalCustomContent-flex">
+                        <label for="nlignes">Nombre de lignes:</label>
+                        <input type="number" id="nlignes" name="nlignes">
+                    </div>
+
+                    <div class="ModalCustomContent-flex">
+                        <label for="ncolonnes">Nombre de colonnes:</label>
+                        <input type="number" id="ncolonnes" name="ncolonnes">
+                    </div>
+
+                    <div class="ModalCustomContent-flex">
+                        <label for="nmines">Nombre de mines:</label>
+                        <input type="number" id="nmines" name="nmines">
+                    </div>
+
+            </form>
+
+            <div class="submitCustom" id="submitCustom">
+                <button>TERMINER ?</button>
+            </div>
+            <!--idee: quiz demineur, en ligne un question, en collone vrai faut, et il faut trouver la bonne repose, sinon bombe-->
+        </div>
+
+
     </div>
+
+
 
     <section>
 
