@@ -1,4 +1,5 @@
 import { getAdjacentIndices } from "./utils.js";
+import { gameEnded } from './TimerEtScore.js';
 
 export function reveal (cell, index, gridSize, allCells, revealed = new Set()) {
     if (revealed.has(index)) return; 
@@ -8,8 +9,11 @@ export function reveal (cell, index, gridSize, allCells, revealed = new Set()) {
   
     if (cell.classList.contains("mine")) {
       cell.style.backgroundColor = "inherit";
-      cell.style.backgroundImage = "url(img/logo_minesweeper.png)";
+      cell.style.backgroundImage = "url(../resources/img/logo_minesweeper.png)";
       cell.style.backgroundSize = "contain";
+
+      
+      gameEnded = true;
 
     } 
     else if (mineCount > 0) {

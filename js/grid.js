@@ -1,11 +1,13 @@
 import { reveal } from './reveal.js';
 
-export function createGrid(rows, cols) {
-    const gridContainer = document.getElementById("game-grid");
-    contenu.appendChild(gridContainer);
-    gridContainer.innerHTML = ""; // reset si grille
+const gridCols = document.querySelector(".game-grid")
+export function createGrid([rows, cols, cmines]) {
+    const gameGrid = document.getElementById("game-grid");
+    gridSpace.appendChild(gameGrid);
+    gameGrid.innerHTML = ""; // reset si grille
     
-  
+    gridCols.style.setProperty("--cols", cols);
+    
     const gridSize = cols; // important pour les calculs
 
     const allCells = []; // on stocke les cellules pour y accéder dans reveal()
@@ -32,6 +34,6 @@ export function createGrid(rows, cols) {
         reveal(cell, i, gridSize, allCells);
       });
   
-      gridContainer.appendChild(cell);
+      gameGrid.appendChild(cell);
     }
   }

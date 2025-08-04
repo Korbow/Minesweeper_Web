@@ -19,7 +19,7 @@ export function getAdjacentIndices(index, gridSize) {
       return indices; 
     }
 
-export function calculNombreAdjacent(rows, cols){
+export function calculNombreAdjacent([rows, cols, cmines]){
     const allCells = document.querySelectorAll(".grid-cell");
     const gridSize = rows;
 

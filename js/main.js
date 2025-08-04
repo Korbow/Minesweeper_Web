@@ -1,8 +1,9 @@
 
 import { createGrid } from './grid.js';
 import { placementMine } from './mines.js';
-
+import { démarrerTimer, setTimerElement } from './TimerEtScore.js';
 import {calculNombreAdjacent } from './utils.js';
+import { getDifficulty } from './modal.js';
 
 
 
@@ -14,7 +15,9 @@ import {calculNombreAdjacent } from './utils.js';
 
   export function lancerJeu() {
     console.log("jeu démarré");
-  
+    
+    const niveau = getDifficulty(); 
+
     const contenu = document.getElementById("contenu");
     const texteAffiche = document.createElement("div");
     contenu.appendChild(texteAffiche);
@@ -22,16 +25,17 @@ import {calculNombreAdjacent } from './utils.js';
   
     const score = document.createElement("div");
     score.classList.add("score");
-    score.innerHTML = "<h3>Score : 0</h3>";
-    texteAffiche.appendChild(score);
-  
+    
     const timer = document.createElement("div");
     timer.classList.add("timer");
-    timer.innerHTML = "<h3>Chronomètre : 0</h3>";
     texteAffiche.appendChild(timer);
+
+    setTimerElement(timer);
+    démarrerTimer();
+      
   
-    createGrid(10, 10);
-    placementMine(10, 10);
-    calculNombreAdjacent(10, 10);
+    createGrid(niveau);
+    placementMine(niveau);
+    calculNombreAdjacent(niveau);
   }
   
