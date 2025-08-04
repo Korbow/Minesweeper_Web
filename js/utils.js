@@ -13,7 +13,7 @@ export function getAdjacentIndices(index, gridSize) {
                 const newIndex = newRow * gridSize + newCol;
                 indices.push(newIndex);
             }
-        }
+        } 
       }
     
       return indices; 
