@@ -63,7 +63,8 @@ function triggerExplosion(event) {
       if (startContainer) {
         startContainer.style.display = "none";
       }
-      lancerJeu(); // ✅ Appel de ta fonction principale
+      lancerJeu();
+      console.log("test_debug") // ✅ Appel de ta fonction principale
     }, 2600);
   
     setTimeout(() => {

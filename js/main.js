@@ -17,6 +17,7 @@ import { getDifficulty } from './modal.js';
     console.log("jeu démarré");
     
     const niveau = getDifficulty(); 
+    console.log(niveau);
 
     const contenu = document.getElementById("contenu");
     const texteAffiche = document.createElement("div");

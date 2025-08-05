@@ -1,7 +1,7 @@
 var ModalGameSetting = document.getElementById("ModalGameSetting");
 var ModalCustomSetting = document.getElementById("ModalCustomSetting");
 
-var span = document.getElementsByClassName("close")[0];
+
 
 
 const facile = [10, 10, 12];
@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ModalCustomSetting.style.display = "none";
 });
 
-/*
+
 window.onclick = function(event) {
   if (event.target == ModalGameSetting) {
     ModalGameSetting.style.display = "none";
   }
 }
-  */
+
 
 let difficulty = facile;
 
@@ -62,7 +62,9 @@ cards.forEach((card)=>{
       ModalGameSetting.style.display = "none";
       }, 1300);
 
+      console.log(difficulty);
       return difficulty;
+      
       
     }
     
