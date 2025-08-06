@@ -1,12 +1,13 @@
 import { reveal } from './reveal.js';
 
-const gridCols = document.querySelector(".game-grid")
+const gridColsNRows = document.querySelector(".game-grid")
 export function createGrid([rows, cols, cmines]) {
     const gameGrid = document.getElementById("game-grid");
     gridSpace.appendChild(gameGrid);
     gameGrid.innerHTML = ""; // reset si grille
     
-    gridCols.style.setProperty("--cols", cols);
+    gridColsNRows.style.setProperty("--cols", cols);
+    gridColsNRows.style.setProperty("--rows", rows);
     
     const gridSize = cols; // important pour les calculs
 

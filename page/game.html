@@ -148,25 +148,25 @@
             
             <form class="ModalCustomOptions">
                 
-                    <div class="ModalCustomContent-flex">
+                    <div class="ModalCustomContent-flex" >
                         <label for="nlignes">Nombre de lignes:</label>
-                        <input type="number" id="nlignes" name="nlignes">
+                        <input type="number" id="nlignes" name="nlignes" min="1" max="100">
                     </div>
 
-                    <div class="ModalCustomContent-flex">
+                    <div class="ModalCustomContent-flex" id="ncolonnesValue">
                         <label for="ncolonnes">Nombre de colonnes:</label>
-                        <input type="number" id="ncolonnes" name="ncolonnes">
+                        <input type="number" id="ncolonnes" name="ncolonnes" min="1" max="100">
                     </div>
 
-                    <div class="ModalCustomContent-flex">
+                    <div class="ModalCustomContent-flex" id="nminesValue">
                         <label for="nmines">Nombre de mines:</label>
-                        <input type="number" id="nmines" name="nmines">
+                        <input type="number" id="nmines" name="nmines" min="1" max="10000">
                     </div>
 
             </form>
 
-            <div class="submitCustom" id="submitCustom">
-                <button>TERMINER ?</button>
+            <div class="divSubmitCustom">
+                <button id="submitCustom" class="submitCustom">TERMINER ?</button>
             </div>
             <!--idee: quiz demineur, en ligne un question, en collone vrai faut, et il faut trouver la bonne repose, sinon bombe-->
         </div>

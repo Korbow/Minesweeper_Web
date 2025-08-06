@@ -72,11 +72,42 @@ cards.forEach((card)=>{
   
 });
 
+
+
 cardCustom.addEventListener("click", () =>{
-ModalGameSetting.style.display = "none";
-ModalCustomSetting.style.display = "block";
+  ModalGameSetting.style.display = "none";
+  ModalCustomSetting.style.display = "block";
+
+  
+
 
 });
+
+const submitCustomBtn = document.getElementById('submitCustom');
+submitCustomBtn.addEventListener("click", () =>{
+
+
+  let nLignesV = document.getElementById('nlignes').value;
+  let nColonnesV = document.getElementById('ncolonnes').value;
+  let nMinesV = document.getElementById('nmines').value;
+
+  if(nMinesV <= nLignesV*nColonnesV){
+    difficulty = [nLignesV, nColonnesV, nMinesV]
+    ModalCustomSetting.classList.add("end");
+    setTimeout(() => {
+      ModalCustomSetting.style.display = "none";
+      }, 1300);
+
+    console.log(difficulty);
+  }else{
+    alert("Le nombre de ligne doit être inférieur au produit du nombre de lignes et du nombre de colonnes !")
+  }
+   
+
+});
+
+
+
 
 export function getDifficulty() {
   return difficulty;

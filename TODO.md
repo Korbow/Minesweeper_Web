@@ -8,8 +8,9 @@
     - [ ] Winning Modal
     - [ ] Losing Modal
     - [ ] Manage Score and Timer
-- [ ] Add the custom rules system
+- [x] Add the custom rules system
 - [ ] Fix the SoundManagement 
+- [ ] credit https://freesound.org/people/NewHopeGames/sounds/815844/
 
 ### In Progress
 

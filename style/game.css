@@ -195,7 +195,7 @@ a{
 
 
 .contenu{
-  margin: 3% 0%;
+  margin: 6% 0%;
 }
 
 
@@ -208,7 +208,7 @@ a{
 .game-grid {
   display: grid;
   grid-template-columns: repeat(var(--cols), 40px); /* 10 colonnes */
-  grid-template-rows: repeat(var(--cols), 40px);
+  grid-template-rows: repeat(var(--rows), 40px);
   gap: 15px ;
   justify-content: center;
   margin-top: 50px;

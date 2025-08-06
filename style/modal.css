@@ -25,14 +25,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   padding:  20px 50px 30px 50px;
   border: 7px double #888;
   width: 45%;
-  height: 70%;
+  
   
   overflow-y: scroll;
   scrollbar-width: none;
   scrollbar-color: #888 rgba(255, 255, 255, 0);
 
 
-  box-shadow: 0 0 100px 600px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 400px 800px rgba(0, 0, 0, 0.4);
 
   
 
@@ -154,19 +154,7 @@ width: auto;
 
 
 /* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
 
-.close:hover,
-.close  {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 
 .end{
@@ -212,7 +200,7 @@ width: auto;
   padding:  20px 50px 30px 50px;
   border: 7px double #888;
   width: 30%;
-  height: 70%;
+
   
   overflow-y: scroll;
   scrollbar-width: none;
@@ -227,8 +215,8 @@ width: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 14% 4%;
-  height: 62%;
+  margin: 14% 4% 7% 4%;
+
   gap: 10%;
   
 }
@@ -238,8 +226,8 @@ width: auto;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 5%;
-  padding: 0% 7%;
+  margin: 3% 0%;
+  padding: 7% 7%;
   border: 7px double #888;
   background: linear-gradient(to bottom right, #fffcf2, #fff7e0);
 
@@ -260,17 +248,15 @@ width: auto;
 }
 
 
-.submitCustom{
-  height: 100px;
+.divSubmitCustom{
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 5% 0%;
+  justify-content: center;
 
-  
+
 }
 
-.submitCustom button{
+.submitCustom {
   border: solid 2px #ffffff;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
   border-radius: 20px;
@@ -288,4 +274,6 @@ width: auto;
   position: absolute;
   width: 22%;
   height: 10%;
+
+  margin-top: 4%;
 }
