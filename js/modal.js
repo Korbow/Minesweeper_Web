@@ -20,7 +20,7 @@ window.onclick = function(event) {
     ModalGameSetting.style.display = "none";
   }
 }
-
+  
 
 let difficulty = facile;
 
