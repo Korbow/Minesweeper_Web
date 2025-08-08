@@ -6,7 +6,11 @@ body {
     font-family: 'Manrope', sans-serif;
     font-size: 1em;
     background: linear-gradient(to bottom right, #f2f2f2, #fff7e0);
+    background-repeat: no-repeat;
     margin: 0;
     
 }
 
+html {
+    height: 100vh;
+}

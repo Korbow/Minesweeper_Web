@@ -9,7 +9,7 @@
     - [ ] Losing Modal
     - [ ] Manage Score and Timer
 - [x] Add the custom rules system
-- [ ] Fix the SoundManagement 
+- [x] Fix the SoundManagement 
 - [ ] credit https://freesound.org/people/NewHopeGames/sounds/815844/
 
 ### In Progress
@@ -21,4 +21,4 @@
 
 
 
-
+  

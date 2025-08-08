@@ -1,22 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const savedUnmute = sessionStorage.getItem("isunmute");
+  const savedVolume = sessionStorage.getItem("globalVolume");
   const navType = performance.getEntriesByType("navigation")[0]?.type;
 
+  const btn = document.getElementById("virtual-sound-trigger");
   if (savedUnmute === "true" && navType !== "reload") {
-    const btn = document.getElementById("virtual-sound-trigger");
-    if (btn) {
-      btn.click(); // Simule une interaction
-    }
+    btn?.click(); // On simule un clic pour débloquer le son (obligatoire navigateur)
   }
 
-  const trigger = document.getElementById("virtual-sound-trigger");
-  if (trigger) {
-    trigger.addEventListener("click", () => {
+  // Quoi qu’il arrive, on simule un "faux clic" pour activer le contexte audio
+  if (btn) {
+    btn.addEventListener("click", () => {
       const fakeAudio = new Audio();
-      fakeAudio.volume = 0;
-
-      // Mini audio silencieux
       fakeAudio.src = "../resources/sound/briquet.mp3";
+
+      // Volume selon si le son est activé ou non
+      if (savedUnmute === "true") {
+        const volume = savedVolume !== null ? parseFloat(savedVolume) : 0.5;
+        fakeAudio.volume = volume;
+      } else {
+        fakeAudio.volume = 0; // => on "joue" le son mais il est inaudible
+      }
 
       fakeAudio.play().catch(() => {});
     });

@@ -12,14 +12,22 @@ const soundHover = document.querySelector(".detonator-container");
 const audioBriquet = document.getElementById("audio_briquet");
 const audioFeu = document.getElementById("audio_feu");
 
+//Logique avec soundcontrol
 soundHover.addEventListener("mouseenter", () => {
-  audioBriquet.currentTime = 0;
-  audioBriquet.play();
+  if (sessionStorage.getItem("isunmute") === "true") {
+    const volume = parseFloat(sessionStorage.getItem("globalVolume") || "0");
 
-  setTimeout(() => {
-    audioFeu.currentTime = 6;
-    audioFeu.play();
-  }, 0);
+    audioBriquet.volume = volume;
+    audioFeu.volume = volume;
+
+    audioBriquet.currentTime = 0;
+    audioBriquet.play();
+
+    setTimeout(() => {
+      audioFeu.currentTime = 6;
+      audioFeu.play();
+    }, 0);
+  }
 });
 
 soundHover.addEventListener("mouseleave", () => {
@@ -29,7 +37,6 @@ soundHover.addEventListener("mouseleave", () => {
   audioFeu.pause();
   audioFeu.currentTime = 0;
 });
-
 
 const btnBoom = document.getElementById('hoverExplosion');
 btnBoom.addEventListener('click', triggerExplosion);
@@ -52,8 +59,12 @@ function triggerExplosion(event) {
     
     const audioExplosion = document.getElementById("audio_explosion");
     if (audioExplosion) {
-      audioExplosion.currentTime = 0;
-      audioExplosion.play().catch(() => {}); // silence l'erreur autoplay si bloqué
+        if (sessionStorage.getItem("isunmute") === "true") {
+            const volume = parseFloat(sessionStorage.getItem("globalVolume") || "0");
+            audioExplosion.volume = volume;
+            audioExplosion.currentTime = 0;
+            audioExplosion.play().catch(() => {}); // silence l'erreur autoplay si bloqué
+        }
     }
 
     element.classList.add("shake");

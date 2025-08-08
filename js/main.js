@@ -9,7 +9,8 @@ import { getDifficulty } from './modal.js';
 
   
 // Debut du Main
-
+const contenu = document.getElementById("contenu");
+contenu.style.display = "none";
 
 
 
@@ -19,7 +20,8 @@ import { getDifficulty } from './modal.js';
     const niveau = getDifficulty(); 
     console.log(niveau);
 
-    const contenu = document.getElementById("contenu");
+    contenu.style.display = "block";
+
     const texteAffiche = document.createElement("div");
     contenu.appendChild(texteAffiche);
     texteAffiche.classList.add("text-affiche");
