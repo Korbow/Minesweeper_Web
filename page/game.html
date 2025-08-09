@@ -176,24 +176,25 @@
     </div>
     
     <!--Troisieme modale-->
-    <div id="ModalGameOver" class="modalCustom modal">
-        <div>
-            <h1>Game over !</h1>
-        </div>
-        <div>
-            <div>
-                Score:
+    <div id="ModalGameOver" class="modalGameOver">
+        <div class="modalContentGameOver">
+            <div class="modaltitleGO">
+                <h2>Game Over !</h2>
             </div>
-            <div>
-                Timer
+            <div class="modalGOScores">
+                <div c>
+                    <h6>Score : 0 </h6>
+
+                    <h6>Timer : 0 s</h6>
+                </div>
             </div>
-        </div>
-        <div>
-            <div>
-                Rejouer ?
-            </div>
-            <div>
-                Changer de difficulté >
+            <div class="modalGObtn">
+                <button id="modalGObtnPremier">
+                    Rejouer ?
+                </button>
+                <button id="modalGObtnSecond">
+                    Changer de difficulté >
+                </button>
             </div>
         </div>
     </div>

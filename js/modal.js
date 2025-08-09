@@ -1,4 +1,5 @@
 import { getGameEnded } from './TimerEtScore.js';
+import { lancerJeu } from './main.js';
 
 var ModalGameSetting = document.getElementById("ModalGameSetting");
 var ModalCustomSetting = document.getElementById("ModalCustomSetting");
@@ -123,4 +124,22 @@ document.addEventListener("gameOver", () => {
     ModalGameOver.style.display = "block";
     console.log("wow!")
   }
+});
+
+/*
+Modal Retry
+
+*/
+const modalGoBtnRetry = document.getElementById("modalGObtnPremier");
+const modalGoBtnLevel = document.getElementById("modalGObtnSecond");
+
+modalGoBtnLevel.addEventListener('click', () => {
+  location.reload();
+});
+
+modalGoBtnRetry.addEventListener('click', () => {
+  lancerJeu()
+  ModalGameOver.style.display = "none";
+
+
 });
