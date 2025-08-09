@@ -1,5 +1,16 @@
 import { getAdjacentIndices } from "./utils.js";
-import { gameEnded } from './TimerEtScore.js';
+import { setGameEnded } from './TimerEtScore.js';
+
+function gameOver() {
+  setGameEnded(true);
+  document.dispatchEvent(new Event("gameOver"));
+}
+
+
+
+
+
+
 
 export function reveal (cell, index, gridSize, allCells, revealed = new Set()) {
     if (revealed.has(index)) return; 
@@ -13,7 +24,7 @@ export function reveal (cell, index, gridSize, allCells, revealed = new Set()) {
       cell.style.backgroundSize = "contain";
 
       
-      gameEnded = true;
+      gameOver();
 
     } 
     else if (mineCount > 0) {

@@ -1,5 +1,8 @@
+import { getGameEnded } from './TimerEtScore.js';
+
 var ModalGameSetting = document.getElementById("ModalGameSetting");
 var ModalCustomSetting = document.getElementById("ModalCustomSetting");
+var ModalGameOver = document.getElementById("ModalGameOver");
 
 
 
@@ -12,6 +15,7 @@ const difficile = [18, 18, 66]
 document.addEventListener("DOMContentLoaded", () => {
   ModalGameSetting.style.display = "block";
   ModalCustomSetting.style.display = "none";
+  ModalGameOver.style.display = "none";
 });
 
 
@@ -112,3 +116,11 @@ submitCustomBtn.addEventListener("click", () =>{
 export function getDifficulty() {
   return difficulty;
 }
+
+
+document.addEventListener("gameOver", () => {
+  if (getGameEnded()) {
+    ModalGameOver.style.display = "block";
+    console.log("wow!")
+  }
+});

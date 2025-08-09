@@ -1,4 +1,14 @@
-export let gameEnded = false;
+
+let gameEnded = false;
+
+export function getGameEnded() {
+  return gameEnded;
+}
+
+export function setGameEnded(value) {
+  gameEnded = value;
+}
+
 let secondes = 0;
 let timerInterval = null;
 let timerElement = null;
