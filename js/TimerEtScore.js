@@ -13,6 +13,9 @@ let secondes = 0;
 let timerInterval = null;
 let timerElement = null;
 
+const scoreFinal = document.getElementById("scoreFinal");
+const timerFinal = document.getElementById("timerFinal");
+
 export function setTimerElement(element) {
   timerElement = element;
 }
@@ -27,7 +30,14 @@ export function démarrerTimer() {
 
   timerInterval = setInterval(() => {
     if (gameEnded) {
+      if(secondes <= 60){
+        scoreFinal.innerHTML =`Score : ${secondes}s`
+      }else{
+        scoreFinal.innerHTML =`Score : ${secondes/60}m ${secondes}s`
+      }
       clearInterval(timerInterval);
+      
+
     } else {
       secondes++;
       if (timerElement) {

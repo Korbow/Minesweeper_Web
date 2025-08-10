@@ -16,7 +16,7 @@ const difficile = [18, 18, 66]
 document.addEventListener("DOMContentLoaded", () => {
   ModalGameSetting.style.display = "block";
   ModalCustomSetting.style.display = "none";
-  ModalGameOver.style.display = "none";
+  
 });
 
 
