@@ -9,7 +9,9 @@ export function createGrid([rows, cols, cmines]) {
     gridColsNRows.style.setProperty("--cols", cols);
     gridColsNRows.style.setProperty("--rows", rows);
     
-    const gridSize = cols; // important pour les calculs
+
+    const nCols = cols;
+    const nRows = rows;
 
     const allCells = []; // on stocke les cellules pour y accéder dans reveal()
 
@@ -32,7 +34,7 @@ export function createGrid([rows, cols, cmines]) {
 
       // au clic
       cell.addEventListener("click", () => {
-        reveal(cell, i, gridSize, allCells);
+        reveal(cell, i, nRows, nCols, allCells);
       });
   
       gameGrid.appendChild(cell);

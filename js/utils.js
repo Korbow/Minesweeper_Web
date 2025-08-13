@@ -1,32 +1,12 @@
-export function getAdjacentIndices(index, gridSize) {
-    const indices = [];
-    const row = Math.floor(index / gridSize);
-    const col = index % gridSize;
-
-    for (let dr = -1; dr <= 1; dr++) {
-        for (let dc = -1; dc <= 1; dc++) {
-            if (dr === 0 && dc === 0) continue;
-
-            const newRow = row + dr;
-            const newCol = col + dc;
-            if (newRow >= 0 && newRow < gridSize && newCol >= 0 && newCol < gridSize) {
-                const newIndex = newRow * gridSize + newCol;
-                indices.push(newIndex);
-            }
-        } 
-      }
-    
-      return indices; 
-    }
-
 export function calculNombreAdjacent([rows, cols, cmines]){
     const allCells = document.querySelectorAll(".grid-cell");
-    const gridSize = rows;
+    const nRows = rows;
+    const nCols = cols;
 
 
     allCells.forEach((cell, index) => {
         if (cell.classList.contains("mine")) return;
-        const neighbors = getAdjacentIndices(index, gridSize);
+        const neighbors = getAdjacentIndices(index, nRows, nCols);
 
         // compter combien de voisin on la classe .mine
         
@@ -35,7 +15,35 @@ export function calculNombreAdjacent([rows, cols, cmines]){
         }, 0);
         
         cell.dataset.mineCount = mineCount;
-        console.log("la case "+ index +" a "+ mineCount +"mines adjacentes")
-        
-});
+        console.log("la case "+ index +" a "+ mineCount +"mines adjacentes")     
+    });
 }    
+
+
+
+
+
+export function getAdjacentIndices(index, rows, cols) {
+    const indices = [];
+
+    // conversion index → coordonnées
+    const row = Math.floor(index / cols);
+    const col = index % cols;
+
+    for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+            if (dr === 0 && dc === 0) continue;
+
+            const newRow = row + dr;
+            const newCol = col + dc;
+
+            // vérifier que les coordonnées sont dans la grille
+            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                const newIndex = newRow * cols + newCol; // coordonnées → index
+                indices.push(newIndex);
+            }
+        }
+    }
+
+    return indices;
+}
