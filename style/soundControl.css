@@ -336,3 +336,38 @@ display: flex;
 
 }
 
+
+
+
+/*================================================================================================*/
+/*== [ RESPONSIVE DESIGN] ==============================================*/
+/*================================================================================================*/
+
+
+
+@media screen and (max-width: 1250px) {
+
+  .options {
+    position: fixed;
+    display: flex; 
+    flex-direction: row;
+    right: 5%;
+    top: 85%;
+    z-index: 6;
+  }
+  
+  /*== [ VOLUME ] ==*/
+  .volume {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 2% 4%;
+    color: white;
+  }
+  button#enable-sound {
+
+    width: clamp(200px, 35vw, 250px);
+    height: clamp(50px, 15vw, 70px);
+
+  }
+
+}
+

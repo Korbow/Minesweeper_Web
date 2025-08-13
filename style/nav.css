@@ -10,6 +10,8 @@ nav{
     position: relative;
     height: clamp(90px, 5vw, 100px);
     z-index: 5;
+    padding-left: 2%;
+    padding-right: 2%;
 
 }
 
@@ -50,10 +52,10 @@ nav{
 }
 
 #logo_cite_maudite{
-    width: 156px;
+    width: clamp(5%, 1.5vw, 17%);
 }
 #logo_cite_maudite img{
-    height: 73px;
+    max-height: 73px;
 }
 
 

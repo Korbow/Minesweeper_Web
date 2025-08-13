@@ -2,7 +2,8 @@
 
 .hero {
   text-align: center;
-  margin: 15% 0% 20% 0%;
+
+  margin-top: clamp(300px, 30vw, 370px);
 }
 
 
@@ -23,10 +24,10 @@
 
 
 .centrage-btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -97,52 +98,17 @@ a {
 }
 
 
-/*
-
-.contenu-title{
-    margin: 30% 0%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-
-}
-
-.contenu-title h1{
-
-    font-size: 4em;
-
-    background-image: linear-gradient(
-      135deg,
-      #ff3c00 0%,
-      #ff8c00 25%,
-      #ff8c00 75%,
-      #ff3c00 100%
-    );
 
 
-    
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-   
 
+@media screen and (max-width: 1000px) {
+  .hero-title {
+    font-size: clamp(1.2em, 5vw, 2.5em);
+  }
+  .logo-icon {
+
+    margin: 0 0.5%;
+    font-size: clamp(1.2em, 5vw, 2.2em);
+  }
 
 }
-
-#span-icon-logoMinesweeper{
-    display: inline-block;
-    width: 90px;
-    height: 90px;
-
-    vertical-align:middle;
-    background-size: contain;
-    background-image: url(/img/logo_minesweeper.png);
-    background-repeat: no-repeat;
-
-}
-
-
-
-
-
-*/
