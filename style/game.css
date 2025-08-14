@@ -190,12 +190,23 @@ a{
 }
 
 
+.OverlayPanel{
+  position:absolute;
 
+  left: 2%;
+  top: 15%;
+  background-color: white;
+
+  padding: 0.8% 1.3%;
+  border-radius: clamp(2px, 1vw, 10px);
+  box-shadow: 1px 1px 10px 5px #c4c6c7;
+}
 
 
 
 .contenu{
   margin: 6% 0%;
+
 }
 
 

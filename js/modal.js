@@ -122,7 +122,7 @@ export function getDifficulty() {
 document.addEventListener("gameOver", () => {
   if (getGameEnded()) {
     ModalGameOver.style.display = "block";
-    console.log("wow!")
+
   }
 });
 

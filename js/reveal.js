@@ -1,11 +1,17 @@
 import { getAdjacentIndices } from "./utils.js";
 import { setGameEnded } from './TimerEtScore.js';
 
+
 function gameOver() {
   setGameEnded(true);
   document.dispatchEvent(new Event("gameOver"));
 }
 
+function raise() {
+
+  document.dispatchEvent(new Event("raise"));
+  console.log("raise effectué")
+}
 
 
 
@@ -37,11 +43,15 @@ export function reveal (cell, index, rows, cols, allCells, revealed = new Set())
     else if (mineCount == 2) cell.style.color = "green";
     else if (mineCount == 3) cell.style.color = "red";
     else if (mineCount == 4) cell.style.color = "purple";
+
+    raise();
   } 
   else {
     // 0 mines autour, on révèle les voisins
     cell.style.backgroundColor = "white";
     const neighbors = getAdjacentIndices(index, nRows, nCols);
+
+    raise();
 
     neighbors.forEach(i => {
       const neighborCell = allCells[i];

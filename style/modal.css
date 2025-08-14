@@ -472,6 +472,27 @@ width: auto;
     height: clamp(30px, 10vw, 90px);
     margin-top: clamp(5px, 5vw, 50px);
 
-    border-radius: clamp(10px, 3vw, 30px);;
+    border-radius: clamp(10px, 3vw, 30px);
+  }
+  /*== [ MODAL GO] ==============================================*/
+  .modalContentGameOver {
+    padding: 2% 5% 3% 5%;
+    width: 60%;
+    margin-top: 40%;    
+  }
+  .modaltitleGO h2 {
+    text-decoration: underline;
+    font-size: clamp(10px, 5vw, 30px);
+
+  }
+  .modaltitleGO{
+    margin: 2% 4% 2.5% 4%;
+  }
+  .modalGOScores h6 {
+    font-size: clamp(10px, 6vw, 25px);
+  }
+  .modalGObtn button{
+    font-size: clamp(10px, 2.4vw, 18px);
+    border-radius: clamp(5px, 2vw, 20px);
   }
 }
