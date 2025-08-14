@@ -351,8 +351,8 @@ display: flex;
     position: fixed;
     display: flex; 
     flex-direction: row;
-    right: 5%;
-    top: 85%;
+    right: 7%;
+    top: 90%;
     z-index: 6;
   }
   

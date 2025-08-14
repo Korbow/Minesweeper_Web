@@ -145,7 +145,7 @@ nav{
         
     }
     .navbar-content a {
-        font-size: clamp(1px, 3vw, 25px);
+        font-size: clamp(12px, 3.5vw, 25px);
         text-decoration: none;
         color: black;
         padding: 2% 4%;

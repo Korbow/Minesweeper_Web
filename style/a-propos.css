@@ -18,3 +18,18 @@
 body{
     height: 100vh;
 }
+
+.underline{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 900px) {
+    .zoneTexte{
+        font-size: clamp(20px, 2vw, 40px);
+        width: clamp(80%, 4vw, 50%);
+    }
+    .section-apropos {
+        margin: 30% 0%;
+
+    }
+}

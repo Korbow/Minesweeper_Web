@@ -241,3 +241,40 @@ a{
 .mine{
 
 }
+
+@media screen and (max-width: 1250px) {
+  .btn-commencer-centrer{
+    scale: 90%;
+    margin: 30% 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .btn-commencer-centrer{
+    scale: 85%;
+    margin: 40% 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .btn-commencer-centrer{
+    scale: 80%;
+    margin: 60% 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .btn-commencer-centrer{
+    scale: 75%;
+    margin: 80% 0;
+  }
+  .base{
+    font-size: clamp(1.8rem, 2vw, 2.5rem);
+    padding: 0.8em 1.6em;
+    text-align: center;
+  }
+  .dyna_hover {
+
+    width: 100px;
+  }
+  .dyna_hover:hover {
+    
+  }
+}

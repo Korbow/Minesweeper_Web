@@ -367,3 +367,111 @@ width: auto;
 .modalGObtn #modalGObtnSecond{
   background: linear-gradient(to bottom right, #fffcf2, #fff7e0);
 }
+
+
+
+
+
+/*================================================================================================*/
+
+/*================================================================================================*/
+
+
+
+@media screen and (max-width: 1250px) {
+  /*== [ MODAL LEVEL] ==============================================*/
+  .modal-content {
+    background: white;
+    margin: auto;
+    padding: 2% 5% 3% 5%;
+    border: 7px double #888;
+    width: 55%;
+    height: 70%;
+    
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scrollbar-color: #888 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 400px 800px rgba(0, 0, 0, 0.4);
+  }
+  .modal-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 4% 0%;
+    gap: 4%;
+    overflow: scroll;
+    
+  }
+  .flex-modal-lvl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: solid 2px #888;
+    border-radius: 20px;
+    margin-top: clamp(2px, 1.5vw, 20px);
+    margin-bottom: clamp(5px, 2.5vw, 25px);
+    gap: 5%;
+    background: linear-gradient(to bottom right, #fffcf2, #fff7e0);
+    /*height: clamp(200px, 35vw, 300px);
+    
+    width: clamp(150px, 35vw, 200px);
+    */
+    
+  }
+  /*
+  .flex-modal-lvl img {
+    width: clamp(20px, 10vw, 150px);
+  }
+  
+  .img-flex-modal {
+    height: clamp(20px, 10vw, 150px);
+
+    width: auto;
+
+  }
+  .p-flex-modal {
+    height: clamp(10px, 5vw, 50px);
+    padding: 4% 4%;
+    width: auto;
+  }
+    */
+  .flex-modal-lvl {
+
+  }
+  .modaltitle h2 {
+    text-decoration: underline;
+    font-size: clamp(10px, 6vw, 30px);
+  }
+  .modaltitle {
+    z-index: 5;
+    background-color: white;
+    position: sticky;
+    text-align: center;
+    margin: 2% 4% 2.5% 4%;
+  }
+  .cardCustom{
+    position: sticky;
+  }
+  /*== [ MODAL PARAMETER] ==============================================*/
+  .ModalCustomContent-flex input {
+    height: 60%;
+    width: clamp(50px, 7vw, 80px);
+    font-size: 90%;
+  }
+  .ModalCustomContent-flex {
+    font-size: clamp(2px, 3vw, 30px);
+  }
+  .ModalCustomContent {
+    padding: 2% 5% 3% 5%;
+    width: 60%;
+  }
+  .submitCustom {
+    width: clamp(90px, 25vw, 250px);
+    height: clamp(30px, 10vw, 90px);
+    margin-top: clamp(5px, 5vw, 50px);
+
+    border-radius: clamp(10px, 3vw, 30px);;
+  }
+}
