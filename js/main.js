@@ -5,6 +5,7 @@ import { démarrerTimer, setTimerElement } from './TimerEtScore.js';
 import { démarrerScore, setScoreElement } from './TimerEtScore.js';
 import {calculNombreAdjacent } from './utils.js';
 import { getDifficulty } from './modal.js';
+import { resetRevealedCount } from './reveal.js';
 
 
 
@@ -20,6 +21,7 @@ OverlayPanel.style.display = "none";
   export function lancerJeu() {
     
     console.log("jeu démarré");
+    resetRevealedCount()
     
     const niveau = getDifficulty(); 
     console.log(niveau);

@@ -1,14 +1,15 @@
-import { getGameEnded } from './TimerEtScore.js';
+import { getGameEnded, resetScoreAndTimer } from './TimerEtScore.js';
 import { lancerJeu } from './main.js';
 
 var ModalGameSetting = document.getElementById("ModalGameSetting");
 var ModalCustomSetting = document.getElementById("ModalCustomSetting");
 var ModalGameOver = document.getElementById("ModalGameOver");
+var ModalWin = document.getElementById("ModalWin");
 
 
 
 
-const facile = [10, 10, 12];
+const facile = [10, 10, 10];
 const moyen = [14, 14, 30];
 const difficile = [18, 18, 66]
 
@@ -16,6 +17,8 @@ const difficile = [18, 18, 66]
 document.addEventListener("DOMContentLoaded", () => {
   ModalGameSetting.style.display = "block";
   ModalCustomSetting.style.display = "none";
+  ModalGameOver.style.display = "none";
+  ModalWin.style.display = "none";
   
 });
 
@@ -96,16 +99,20 @@ submitCustomBtn.addEventListener("click", () =>{
   let nColonnesV = document.getElementById('ncolonnes').value;
   let nMinesV = document.getElementById('nmines').value;
 
-  if(nMinesV <= nLignesV*nColonnesV){
-    difficulty = [nLignesV, nColonnesV, nMinesV]
-    ModalCustomSetting.classList.add("end");
-    setTimeout(() => {
-      ModalCustomSetting.style.display = "none";
-      }, 1300);
-
-    console.log(difficulty);
+  if(nMinesV <= 0){
+    alert("Le nombre de mine ne peut pas être nul ou négatif")
   }else{
-    alert("Le nombre de ligne doit être inférieur au produit du nombre de lignes et du nombre de colonnes !")
+    if(nMinesV >= nLignesV*nColonnesV){
+      alert("Le nombre de mines doit être inférieur au produit du nombre de lignes et du nombre de colonnes !")
+    }else{
+      difficulty = [nLignesV, nColonnesV, nMinesV]
+      ModalCustomSetting.classList.add("end");
+      setTimeout(() => {
+        ModalCustomSetting.style.display = "none";
+        }, 1300);
+
+      console.log(difficulty);
+    }
   }
    
 
@@ -126,6 +133,15 @@ document.addEventListener("gameOver", () => {
   }
 });
 
+document.addEventListener("Win", () => {
+  if (getGameEnded()) {
+    ModalWin.style.display = "block";
+
+  }
+});
+
+
+
 /*
 Modal Retry
 
@@ -138,8 +154,9 @@ modalGoBtnLevel.addEventListener('click', () => {
 });
 
 modalGoBtnRetry.addEventListener('click', () => {
+  resetScoreAndTimer()
   lancerJeu()
   ModalGameOver.style.display = "none";
-
+  
 
 });

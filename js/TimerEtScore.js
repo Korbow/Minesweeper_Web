@@ -13,7 +13,10 @@ let secondes = 0;
 let timerInterval = null;
 let timerElement = null;
 
-const timerFinal = document.getElementById("timerFinal");
+// Nom de l'evenemnt:
+let raiseHandler = null;
+
+let timerFinal = document.getElementById("timerFinal");
 
 
 
@@ -57,6 +60,7 @@ export function démarrerTimer() {
 
 let scoreCount = null;
 let scoreElement = null;
+let scoreFinal = document.getElementById("scoreFinal");
 
 
 export function setScoreElement(element) {
@@ -69,18 +73,39 @@ export function démarrerScore() {
   scoreElement.innerHTML = `<h3>Score : ${scoreCount} </h3>`;
 
 
-  document.addEventListener("raise", () => { 
-    console.log("wow")
+
+
+  raiseHandler = () => {
+    console.log("wow");
     scoreCount += 1;
     scoreElement.innerHTML = `<h3>Score : ${scoreCount} </h3>`;
+  };
 
-  });
+  // l’ajouter
+  document.addEventListener("raise", raiseHandler);
+
+}
 
 
+document.addEventListener("gameOver", () => {
   if (gameEnded) {
-    scoreFinal.innerHTML =`<h3>Score : ${scoreCount} </h3>`;
+    scoreFinal.innerHTML = `Score : ${scoreCount} `;
     console.log("detection score gameEnded bonne")
   }
+});
 
 
+
+export function resetScoreAndTimer() {
+
+  scoreCount = 0
+  secondes = 0;
+  scoreElement.innerHTML = "";
+  timerElement.innerHTML = "";
+  if (raiseHandler) {
+    document.removeEventListener("raise", raiseHandler);
+    raiseHandler = null;
+  }
+
+  
 }
