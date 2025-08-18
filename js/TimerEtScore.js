@@ -16,7 +16,12 @@ let timerElement = null;
 // Nom de l'evenemnt:
 let raiseHandler = null;
 
-let timerFinal = document.getElementById("timerFinal");
+let timerFinalGO = document.getElementById("timerFinalGO");
+let scoreFinalGO = document.getElementById("scoreFinalGO");
+
+let timerFinalWIN = document.getElementById("timerFinalWIN");
+let scoreFinalWIN = document.getElementById("scoreFinalWIN");
+
 
 
 
@@ -37,9 +42,11 @@ export function démarrerTimer() {
   timerInterval = setInterval(() => {
     if (gameEnded) {
       if(secondes <= 60){
-        timerFinal.innerHTML =`Temps : ${secondes}s`
+        timerFinalGO.innerHTML =`Temps : ${secondes}s`
+        timerFinalWIN.innerHTML =`Temps : ${secondes}s`
       }else{
-        timerFinal.innerHTML =`Temps : ${secondes/60}m ${secondes}s`
+        timerFinalGO.innerHTML =`Temps : ${secondes/60}m ${secondes}s`
+        timerFinalWIN.innerHTML =`Temps : ${secondes/60}m ${secondes}s`
       }
       clearInterval(timerInterval);
       
@@ -60,7 +67,7 @@ export function démarrerTimer() {
 
 let scoreCount = null;
 let scoreElement = null;
-let scoreFinal = document.getElementById("scoreFinal");
+
 
 
 export function setScoreElement(element) {
@@ -89,7 +96,14 @@ export function démarrerScore() {
 
 document.addEventListener("gameOver", () => {
   if (gameEnded) {
-    scoreFinal.innerHTML = `Score : ${scoreCount} `;
+    scoreFinalGO.innerHTML = `Score : ${scoreCount} `;
+    console.log("detection score gameEnded bonne")
+  }
+});
+
+document.addEventListener("Win", () => {
+  if (gameEnded) {
+    scoreFinalWIN.innerHTML = `Score : ${scoreCount} `;
     console.log("detection score gameEnded bonne")
   }
 });

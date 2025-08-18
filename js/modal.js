@@ -95,24 +95,31 @@ const submitCustomBtn = document.getElementById('submitCustom');
 submitCustomBtn.addEventListener("click", () =>{
 
 
-  let nLignesV = document.getElementById('nlignes').value;
-  let nColonnesV = document.getElementById('ncolonnes').value;
-  let nMinesV = document.getElementById('nmines').value;
+  let nLignesV = Number(document.getElementById('nlignes').value);
+  let nColonnesV = Number(document.getElementById('ncolonnes').value);
+  let nMinesV = Number(document.getElementById('nmines').value);
+  
 
-  if(nMinesV <= 0){
-    alert("Le nombre de mine ne peut pas être nul ou négatif")
-  }else{
-    if(nMinesV >= nLignesV*nColonnesV){
-      alert("Le nombre de mines doit être inférieur au produit du nombre de lignes et du nombre de colonnes !")
-    }else{
-      difficulty = [nLignesV, nColonnesV, nMinesV]
-      ModalCustomSetting.classList.add("end");
-      setTimeout(() => {
-        ModalCustomSetting.style.display = "none";
-        }, 1300);
-
-      console.log(difficulty);
-    }
+  if (!Number.isInteger(nLignesV) || !Number.isInteger(nColonnesV) || !Number.isInteger(nMinesV)) {
+    alert("Toutes les valeurs doivent être des nombres entiers !");
+  }
+  else if (nLignesV > 50 || nColonnesV > 50) {
+    alert("Le nombre de lignes et de colonnes ne peut pas être au-dessus de 50");
+  }
+  else if (nMinesV <= 0 || nLignesV <= 0 || nColonnesV <= 0) {
+    alert("Le nombre de lignes, colonnes et mines ne peut pas être nul ou négatif");
+  }
+  else if (nMinesV >= nLignesV * nColonnesV) {
+    alert("Le nombre de mines doit être inférieur au produit du nombre de lignes et du nombre de colonnes !");
+  }
+  else {
+    difficulty = [nLignesV, nColonnesV, nMinesV];
+    ModalCustomSetting.classList.add("end");
+    setTimeout(() => {
+      ModalCustomSetting.style.display = "none";
+    }, 1300);
+  
+    console.log(difficulty);
   }
    
 
@@ -149,6 +156,10 @@ Modal Retry
 const modalGoBtnRetry = document.getElementById("modalGObtnPremier");
 const modalGoBtnLevel = document.getElementById("modalGObtnSecond");
 
+const modalWinBtnRetry = document.getElementById("modalWinbtnPremier");
+const modalWinBtnLevel = document.getElementById("modalWinbtnSecond");
+
+
 modalGoBtnLevel.addEventListener('click', () => {
   location.reload();
 });
@@ -157,6 +168,18 @@ modalGoBtnRetry.addEventListener('click', () => {
   resetScoreAndTimer()
   lancerJeu()
   ModalGameOver.style.display = "none";
+  
+
+});
+
+modalWinBtnLevel.addEventListener('click', () => {
+  location.reload();
+});
+
+modalWinBtnRetry.addEventListener('click', () => {
+  resetScoreAndTimer()
+  lancerJeu()
+  ModalWin.style.display = "none";
   
 
 });
