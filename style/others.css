@@ -64,3 +64,64 @@ transition: transform 0.6s ease-out;
     60%  { opacity: 1; }
     100% { transform: translate(var(--dx), var(--dy)) translateY(150px) scale(0.5); opacity: 0; }
   }
+
+
+
+/* GO ANIMATION*/
+  #explosion-overlayGO {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .emoji-center-bomb {
+    position: absolute;
+    font-size: 6rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: zoomInbomb 0.4s ease-out forwards, fadeOut 1.2s 0.5s forwards;
+  }
+  
+  @keyframes zoomInbomb {
+    0% { transform: translate(-50%, -50%) scale(0); }
+
+    100% { transform: translate(-50%, -50%) scale(2); }
+  }
+  
+  .particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #e6b464;
+    clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+    border-radius: 10%;
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(2);
+    animation: explodeGO 1s ease-out forwards;
+
+  }
+  
+  .particle.smoke {
+    width: 38px;
+    height: 38px;
+    background: rgba(200,200,220,0.25);
+    border-radius: 50%;
+    clip-path: circle(1000%);
+    
+    
+  }
+  
+  @keyframes explodeGO {
+    50% {
+        transform: translate(calc(var(--dx)), calc(var(--dy))) rotate(calc(var(--rot)/2)) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(var(--dx) * 15), calc(var(--dy) * 15)) rotate(var(--rot*2)) scale(5);
+    opacity: 0;
+    }
+  }
