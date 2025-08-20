@@ -1,0 +1,66 @@
+.flag {
+display: inline-block;
+}
+
+.flag-cloth {
+transform-origin: left center;
+transform: translateY(50%);     
+transition: transform 0.6s ease-out;
+}
+
+.flag.anim .flag-cloth {
+    transform: translateY(0);      /* déploye */
+}
+
+
+
+
+
+
+
+
+
+/* WIN ANIMATION*/
+
+#confetti-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .emoji-center {
+    position: absolute;
+    font-size: 6rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: zoomIn 0.4s ease-out forwards, fadeOut 1.2s 0.6s forwards;
+  }
+
+  @keyframes zoomIn {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+  }
+
+  @keyframes fadeOut {
+    to { opacity: 0; }
+  }
+
+  .piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: red;
+    border-radius: 2px;
+    opacity: 0.9;
+    animation: spiralFall 2s ease-out forwards;
+  }
+
+  @keyframes spiralFall {
+    0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+    60%  { opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) translateY(150px) scale(0.5); opacity: 0; }
+  }
