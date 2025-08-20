@@ -1,58 +1,49 @@
+import { createGrid } from "./grid.js";
+import { placementMine } from "./mines.js";
+import { démarrerTimer, setTimerElement } from "./TimerEtScore.js";
+import { démarrerScore, setScoreElement } from "./TimerEtScore.js";
+import { calculNombreAdjacent } from "./utils.js";
+import { getDifficulty } from "./modal.js";
+import { resetRevealedCount } from "./reveal.js";
 
-import { createGrid } from './grid.js';
-import { placementMine } from './mines.js';
-import { démarrerTimer, setTimerElement } from './TimerEtScore.js';
-import { démarrerScore, setScoreElement } from './TimerEtScore.js';
-import {calculNombreAdjacent } from './utils.js';
-import { getDifficulty } from './modal.js';
-import { resetRevealedCount } from './reveal.js';
-
-
-
-  
-// Debut du Main
+// Initialisation
 const Chronometre = document.getElementById("Chronometre");
 const OverlayPanel = document.getElementById("OverlayPanel");
 Chronometre.style.display = "none";
 OverlayPanel.style.display = "none";
 
+/* Logique de jeu*/
+export function lancerJeu() {
+  console.log("jeu démarré");
+  resetRevealedCount();
 
+  const niveau = getDifficulty();
+  console.log(niveau);
 
-  export function lancerJeu() {
-    
-    console.log("jeu démarré");
-    resetRevealedCount()
-    
-    const niveau = getDifficulty(); 
-    console.log(niveau);
+  Chronometre.style.display = "block";
 
-    Chronometre.style.display = "block";
+  const texteAffiche = document.createElement("div");
+  Chronometre.appendChild(texteAffiche);
+  texteAffiche.classList.add("text-affiche");
 
+  const score = document.createElement("div");
+  score.classList.add("score");
+  texteAffiche.appendChild(score);
 
-    const texteAffiche = document.createElement("div");
-    Chronometre.appendChild(texteAffiche);
-    texteAffiche.classList.add("text-affiche");
-  
-    const score = document.createElement("div");
-    score.classList.add("score");
-    texteAffiche.appendChild(score);
+  setScoreElement(score);
+  démarrerScore();
 
-    setScoreElement(score);
-    démarrerScore();
+  const timer = document.createElement("div");
+  timer.classList.add("timer");
 
-    const timer = document.createElement("div");
-    timer.classList.add("timer");
+  texteAffiche.appendChild(timer);
 
-    texteAffiche.appendChild(timer);
+  setTimerElement(timer);
+  démarrerTimer();
 
-    setTimerElement(timer);
-    démarrerTimer();
+  OverlayPanel.style.display = "block";
 
-    OverlayPanel.style.display = "block";
-      
-  
-    createGrid(niveau);
-    placementMine(niveau);
-    calculNombreAdjacent(niveau);
-  }
-  
+  createGrid(niveau);
+  placementMine(niveau);
+  calculNombreAdjacent(niveau);
+}

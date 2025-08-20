@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btn = document.getElementById("virtual-sound-trigger");
   if (savedUnmute === "true" && navType !== "reload") {
-    btn?.click(); // On simule un clic pour débloquer le son (obligatoire navigateur)
+    btn?.click(); // simulation de click
   }
 
-  // Quoi qu’il arrive, on simule un "faux clic" pour activer le contexte audio
+
   if (btn) {
     btn.addEventListener("click", () => {
       const fakeAudio = new Audio();
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const volume = savedVolume !== null ? parseFloat(savedVolume) : 0.5;
         fakeAudio.volume = volume;
       } else {
-        fakeAudio.volume = 0; // => on "joue" le son mais il est inaudible
+        fakeAudio.volume = 0; 
       }
 
       fakeAudio.play().catch(() => {});

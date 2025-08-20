@@ -1,12 +1,9 @@
 
-
 .hero {
   text-align: center;
 
   margin-top: clamp(300px, 30vw, 370px);
 }
-
-
 
 .hero-title {
   font-size: 2.5rem;
@@ -22,14 +19,13 @@
   font-size: 2.2rem;
 }
 
-
-.centrage-btn{
+/* CTA button*/
+.centrage-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
 
 .cta-button {
   margin-top: 2rem;
@@ -54,7 +50,6 @@ a {
   text-decoration: none;
 }
 
-
 .cta-button:hover {
   background: #333;
   transition: 0.5s;
@@ -77,8 +72,6 @@ a {
   transition: 0.5s;
 }
 
-
-
 .cta-button .span-mother2 {
   display: flex;
   position: absolute;
@@ -97,18 +90,13 @@ a {
   transition: 0.5s ease;
 }
 
-
-
-
-
+/*Animation*/
 @media screen and (max-width: 1000px) {
   .hero-title {
     font-size: clamp(1.2em, 5vw, 2.5em);
   }
   .logo-icon {
-
     margin: 0 0.5%;
     font-size: clamp(1.2em, 5vw, 2.2em);
   }
-
 }

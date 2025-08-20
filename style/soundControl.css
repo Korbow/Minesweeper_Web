@@ -2,10 +2,9 @@
 /*== [ COMPORTEMENT DE BASE ] ======================================================*/
 /*================================================================================================*/
 
-
 .options {
   position: fixed;
-  display: flex; 
+  display: flex;
   flex-direction: row;
   right: 2%;
   top: 3%;
@@ -20,14 +19,10 @@
   border-radius: 5%;
 }
 
-
-.volume{
+.volume {
   border: dashed rgba(155, 153, 153, 0);
-  transition: all 0.5s ease; 
-  
+  transition: all 0.5s ease;
 }
-
-
 
 .volume-container {
   display: none;
@@ -35,11 +30,7 @@
   align-items: center;
   gap: 1rem;
   width: 200px;
-  
 }
-
-
-
 
 input[type="range"] {
   width: 150px;
@@ -58,7 +49,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: #ffffff;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -85,7 +76,7 @@ button#enable-sound {
   width: 250px;
   padding: 0.8em 1.6em;
 
-  border: dashed rgba(155, 153, 153, 0); /* invisible mais présente */
+  border: dashed rgba(155, 153, 153, 0); 
   border-radius: 15px;
   cursor: pointer;
 
@@ -100,7 +91,6 @@ button#enable-sound:hover {
   transition: all 0.5s step-end;
   padding: 0.8em 1.6em;
 }
-
 
 button#enable-sound .svg-wrapper {
   display: flex;
@@ -120,9 +110,7 @@ button#enable-sound .svg-wrapper {
   opacity: 1;
   z-index: 2;
 
-  transition: 
-    opacity 0.5s ease-in-out,
-    left 0.5s ease-in-out,
+  transition: opacity 0.5s ease-in-out, left 0.5s ease-in-out,
     background-color 0.5s ease;
 }
 
@@ -136,18 +124,19 @@ button#enable-sound .svg-wrapper {
 button#enable-sound span {
   color: rgb(155, 153, 153);
   z-index: 1;
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 650;
 }
-
 
 /*== [ MASQUE ] ==*/
 
 button#enable-sound::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   transform: translate(0%, 0%);
   opacity: 0;
@@ -164,17 +153,11 @@ button#enable-sound::before {
   transition: all 0.8s ease;
 }
 
-.volume.one button#enable-sound::before {
-  transform: translate(0%, 0%) scale(5);
-  transform-origin: var(--x) var(--y);
-  opacity: 1;
-}
+
 
 button#enable-sound:hover::before {
   opacity: 1;
 }
-
-
 
 button#enable-sound .bg-reveal {
   position: absolute;
@@ -210,11 +193,6 @@ button#enable-sound .bg-reveal svg {
   transform-origin: center;
 }
 
-
-
-
-
-
 .slash {
   stroke-dasharray: 250;
   stroke-dashoffset: 0;
@@ -234,12 +212,15 @@ button#enable-sound .bg-reveal svg {
   transition: mask-image 0.8s ease-out;
 }
 
-
+.volume.one button#enable-sound::before {
+  transform: translate(0%, 0%) scale(5);
+  transform-origin: var(--x) var(--y);
+  opacity: 1;
+}
 
 /*================================================================================================*/
 /*== [ DEUXIEME PARTIE DE L ANIMATION ] =============================================================*/
 /*================================================================================================*/
-
 
 .volume.two .bg-reveal {
   mask-image: radial-gradient(
@@ -250,8 +231,6 @@ button#enable-sound .bg-reveal svg {
   );
   transition: mask-image 0.8s ease-out;
 }
-
-
 
 /*================================================================================================*/
 /*== [ TROISIEME PARTIE DE L ANIMATION ] =====================================================================*/
@@ -276,7 +255,7 @@ button#enable-sound .bg-reveal svg {
   pointer-events: none;
 
   background: rgb(155, 153, 153) !important;
-  animation: phorm 0.8s forwards ;
+  animation: phorm 0.8s forwards;
 }
 
 .volume.four button#enable-sound #div_mask svg {
@@ -300,23 +279,16 @@ button#enable-sound .bg-reveal svg {
     opacity: 1;
   }
   90% {
-    
-    
   }
   100% {
-    transform:  translateX(-25px) scaleX(0.6) scaleY(0.05) translateY(0);
+    transform: translateX(-25px) scaleX(0.6) scaleY(0.05) translateY(0);
     opacity: 0;
   }
 }
 
-
 .volume.four button#enable-sound::before {
   display: none !important;
-  
 }
-
-
-
 
 /*================================================================================================*/
 /*== [ CINQUEME PARTIE DE L ANIMATION ] ==============================================*/
@@ -326,36 +298,28 @@ button#enable-sound .bg-reveal svg {
   left: 60%;
 }
 
-
-.volume.five{
+.volume.five {
   border: dashed rgb(155, 153, 153, 1);
 }
 
 .volume.five .volume-container {
-display: flex;
-
+  display: flex;
 }
-
-
-
 
 /*================================================================================================*/
 /*== [ RESPONSIVE DESIGN] ==============================================*/
 /*================================================================================================*/
 
-
-
 @media screen and (max-width: 1250px) {
-
   .options {
     position: fixed;
-    display: flex; 
+    display: flex;
     flex-direction: row;
     right: 7%;
     top: 90%;
     z-index: 6;
   }
-  
+
   /*== [ VOLUME ] ==*/
   .volume {
     background-color: rgba(0, 0, 0, 0);
@@ -363,11 +327,7 @@ display: flex;
     color: white;
   }
   button#enable-sound {
-
     width: clamp(200px, 35vw, 250px);
     height: clamp(50px, 15vw, 70px);
-
   }
-
 }
-

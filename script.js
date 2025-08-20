@@ -6,7 +6,7 @@ import { lancerJeu } from './js/main.js';
 
 
 
-//audio allumage :
+//audio :
 
 const soundHover = document.querySelector(".detonator-container");
 const audioBriquet = document.getElementById("audio_briquet");
@@ -38,14 +38,12 @@ soundHover.addEventListener("mouseleave", () => {
   audioFeu.currentTime = 0;
 });
 
+/* Animation d'explosion btn cta start */
 const btnBoom = document.getElementById('hoverExplosion');
 btnBoom.addEventListener('click', triggerExplosion);
 
-
-
-
 function triggerExplosion(event) {
-    const element = event.currentTarget; // ✅ Récupère l'élément cliqué
+    const element = event.currentTarget; 
 
     const rect = element.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
@@ -63,7 +61,7 @@ function triggerExplosion(event) {
             const volume = parseFloat(sessionStorage.getItem("globalVolume") || "0");
             audioExplosion.volume = volume;
             audioExplosion.currentTime = 0;
-            audioExplosion.play().catch(() => {}); // silence l'erreur autoplay si bloqué
+            audioExplosion.play().catch(() => {});
         }
     }
 
@@ -75,20 +73,18 @@ function triggerExplosion(event) {
         startContainer.style.display = "none";
       }
       lancerJeu();
-      console.log("test_debug") // ✅ Appel de ta fonction principale
     }, 2600);
   
     setTimeout(() => {
-      explosion.style.opacity = "0"; // fade-out 
+      explosion.style.opacity = "0"; 
 
       setTimeout(() => {
         explosion.remove();
         element.classList.remove("shake");
         if (audioExplosion) audioExplosion.pause();
-      }, 4000); // durée du fade-out
-    }, 1500); // durée avant le fade-out
+      }, 4000); 
+    }, 1500); 
 }
-
 
 
 

@@ -1,127 +1,139 @@
+/* FLAG ANIMATION*/
 .flag {
-display: inline-block;
+  display: inline-block;
 }
 
 .flag-cloth {
-transform-origin: left center;
-transform: translateY(50%);     
-transition: transform 0.6s ease-out;
+  transform-origin: left center;
+  transform: translateY(50%);
+  transition: transform 0.6s ease-out;
 }
 
 .flag.anim .flag-cloth {
-    transform: translateY(0);      /* déploye */
+  transform: translateY(0); /* déploye */
 }
-
-
-
-
-
-
-
-
 
 /* WIN ANIMATION*/
 
 #confetti-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 999;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
 
-  .emoji-center {
-    position: absolute;
-    font-size: 6rem;
-    left: 50%;
-    top: 50%;
+.emoji-center {
+  position: absolute;
+  font-size: 6rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: zoomIn 0.4s ease-out forwards, fadeOut 1.2s 0.6s forwards;
+}
+
+@keyframes zoomIn {
+  0% {
     transform: translate(-50%, -50%) scale(0);
-    animation: zoomIn 0.4s ease-out forwards, fadeOut 1.2s 0.6s forwards;
   }
-
-  @keyframes zoomIn {
-    0% { transform: translate(-50%, -50%) scale(0); }
-    100% { transform: translate(-50%, -50%) scale(1); }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
+}
 
-  @keyframes fadeOut {
-    to { opacity: 0; }
+@keyframes fadeOut {
+  to {
+    opacity: 0;
   }
+}
 
-  .piece {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: red;
-    border-radius: 2px;
-    opacity: 0.9;
-    animation: spiralFall 2s ease-out forwards;
+.piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 2px;
+  opacity: 0.9;
+  animation: spiralFall 2s ease-out forwards;
+}
+
+@keyframes spiralFall {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
   }
-
-  @keyframes spiralFall {
-    0%   { transform: translate(0, 0) scale(1); opacity: 1; }
-    60%  { opacity: 1; }
-    100% { transform: translate(var(--dx), var(--dy)) translateY(150px) scale(0.5); opacity: 0; }
+  60% {
+    opacity: 1;
   }
-
-
+  100% {
+    transform: translate(var(--dx), var(--dy)) translateY(150px) scale(0.5);
+    opacity: 0;
+  }
+}
 
 /* GO ANIMATION*/
-  #explosion-overlayGO {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 999;
-  }
+#explosion-overlayGO {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
 
-  .emoji-center-bomb {
-    position: absolute;
-    font-size: 6rem;
-    left: 50%;
-    top: 50%;
+.emoji-center-bomb {
+  position: absolute;
+  font-size: 6rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: zoomInbomb 0.4s ease-out forwards, fadeOut 1.2s 0.5s forwards;
+}
+
+@keyframes zoomInbomb {
+  0% {
     transform: translate(-50%, -50%) scale(0);
-    animation: zoomInbomb 0.4s ease-out forwards, fadeOut 1.2s 0.5s forwards;
   }
-  
-  @keyframes zoomInbomb {
-    0% { transform: translate(-50%, -50%) scale(0); }
 
-    100% { transform: translate(-50%, -50%) scale(2); }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
   }
-  
-  .particle {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #e6b464;
-    clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
-    border-radius: 10%;
+}
+
+.particle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #e6b464;
+  clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+  border-radius: 10%;
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg) scale(2);
+  animation: explodeGO 1s ease-out forwards;
+}
+
+.particle.smoke {
+  width: 38px;
+  height: 38px;
+  background: rgba(200, 200, 220, 0.25);
+  border-radius: 50%;
+  clip-path: circle(1000%);
+}
+
+@keyframes explodeGO {
+  50% {
+    transform: translate(calc(var(--dx)), calc(var(--dy)))
+      rotate(calc(var(--rot) / 2)) scale(1.2);
     opacity: 1;
-    transform: translate(0, 0) rotate(0deg) scale(2);
-    animation: explodeGO 1s ease-out forwards;
-
   }
-  
-  .particle.smoke {
-    width: 38px;
-    height: 38px;
-    background: rgba(200,200,220,0.25);
-    border-radius: 50%;
-    clip-path: circle(1000%);
-    
-    
-  }
-  
-  @keyframes explodeGO {
-    50% {
-        transform: translate(calc(var(--dx)), calc(var(--dy))) rotate(calc(var(--rot)/2)) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(calc(var(--dx) * 15), calc(var(--dy) * 15)) rotate(var(--rot*2)) scale(5);
+  100% {
+    transform: translate(calc(var(--dx) * 15), calc(var(--dy) * 15))
+      rotate(var(--rot * 2)) scale(5);
     opacity: 0;
-    }
   }
+}

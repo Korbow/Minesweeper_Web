@@ -1,8 +1,10 @@
-import { getAdjacentIndices, launchWinAnimation, launchExplosion} from "./utils.js";
-import { setGameEnded } from './TimerEtScore.js';
-import { getTotalMines } from './mines.js';
-
-
+import {
+  getAdjacentIndices,
+  launchWinAnimation,
+  launchExplosion,
+} from "./utils.js";
+import { setGameEnded } from "./TimerEtScore.js";
+import { getTotalMines } from "./mines.js";
 
 function gameOver() {
   setGameEnded(true);
@@ -16,37 +18,18 @@ function gameWin() {
   setGameEnded(true);
   launchWinAnimation();
 
-  /* Effet confetti */
-
-
-
 
 
   /* appel d ouverture modal*/
   setTimeout(() => {
-  document.dispatchEvent(new Event("Win"));
+    document.dispatchEvent(new Event("Win"));
   }, 600);
 }
 
-
-
-
-
-
-
-
-
-
-
 function raise() {
-
   document.dispatchEvent(new Event("raise"));
-  console.log("raise effectué")
+  console.log("raise effectué");
 }
-
-
-
-
 
 let revealedCount = 0;
 
@@ -57,7 +40,7 @@ export function resetRevealedCount() {
 export function reveal(cell, index, rows, cols, allCells) {
   if (cell.classList.contains("revealed")) return; // déjà révélé
   cell.classList.add("revealed");
-  
+
   revealedCount++; // on compte cette case comme révélée
 
   const mineCount = cell.dataset.mineCount;
@@ -71,11 +54,8 @@ export function reveal(cell, index, rows, cols, allCells) {
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
-
-
     gameOver();
-  } 
-  else if (mineCount > 0) {
+  } else if (mineCount > 0) {
     cell.style.backgroundColor = "white";
     cell.innerText = mineCount;
 
@@ -86,17 +66,14 @@ export function reveal(cell, index, rows, cols, allCells) {
 
     raise();
     verifierVictoire(allCells);
-
-    
-  } 
-  else {
+  } else {
     cell.style.backgroundColor = "white";
     const neighbors = getAdjacentIndices(index, rows, cols);
 
     raise();
     verifierVictoire(allCells);
 
-    neighbors.forEach(i => {
+    neighbors.forEach((i) => {
       reveal(allCells[i], i, rows, cols, allCells);
     });
   }
